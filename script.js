@@ -1,5 +1,5 @@
 const projects = [
-  {id:1, title:"Victor Solf", image:"images/projet1.jpg", video:"https://www.youtube.com/watch?v=nwKivhgaVGc&list=RDnwKivhgaVGc&start_radio=1"},
+  {id:1, title:"Victor Solf", image:"images/projet1.jpg", video:"https://www.youtube.com/embed/nwKivhgaVGc"},
   {id:2, title:"Synapson X Clou", image:"images/projet2.jpg", video:"https://www.youtube.com/embed/VIDÉO2"},
   {id:3, title:"Showcase Aime Simone", image:"images/projet3.jpg", video:"https://www.youtube.com/embed/VIDÉO3"},
   {id:4, title:"Showcase Tessa Dixson", image:"images/projet4.jpg", video:"https://www.youtube.com/embed/VIDÉO4"},
