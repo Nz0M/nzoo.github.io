@@ -255,6 +255,7 @@ footer {
   font-weight: 500;
   opacity: 0.5; /* Par défaut, un peu transparent */
   transition: opacity 0.3s ease;
+  font-size: 1.3rem; /* Augmente la taille ici */
 }
 
 .navbar-left a:hover {
