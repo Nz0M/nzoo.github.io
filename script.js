@@ -53,18 +53,15 @@ selected.forEach(p => {
 
 // --- Mettre en surbrillance (opacité) selon la page ---
 document.addEventListener("DOMContentLoaded", () => {
-  const path = window.location.pathname;
+  const current = window.location.pathname.split("/").pop() || "index.html";
 
   document.querySelectorAll(".nav-link").forEach(link => {
     const page = link.getAttribute("data-page");
-    
-    // Détection de la page active
-    const isWorkPage = path.includes("index") || path === "/" || path.endsWith("index.html");
-    const isPicturesPage = path.includes("pictures");
 
-    if (isWorkPage && page === "work") {
+    if ((current === "" || current === "index.html") && page === "work") {
       link.classList.add("active");
-    } else if (isPicturesPage && page === "pictures") {
+    } 
+    else if (current === "pictures.html" && page === "pictures") {
       link.classList.add("active");
     }
   });
