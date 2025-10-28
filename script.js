@@ -13,12 +13,15 @@ const projects = [
   {id:12, title:"Luiza X Fresh", image:"images/projet12.jpg", video:"https://www.youtube.com/embed/4v_IqjR5DNc"},
   {id:13, title:"Ipndego X Fresh", image:"images/projet13.jpg", video:"https://www.youtube.com/embed/_qpvIRUIxf8"},
   {id:14, title:"Casablanca X Fresh", image:"images/projet14.jpg", video:"https://www.youtube.com/embed/18P-VZZzCwQ"},
-  {id:15, title:"Saint DX X Sound Of Paris", image:"images/projet15.jpg", video:"https://www.youtube.com/embed/WAyAF7HxLfg&t=13s"},
+  {id:15, title:"Saint DX X Sound Of Paris", image:"images/projet15.jpg", video:"https://www.youtube.com/embed/WAyAF7HxLfg&t"},
   {id:16, title:"Sainte Victoire X Fresh", image:"images/projet16.jpg", video:"https://www.youtube.com/embed/aXBiZMyrJZM"},
   {id:17, title:"Rallye", image:"images/projet17.jpg", video:"https://www.youtube.com/embed/sIWohq8KDGg"},
   {id:18, title:"Hélène Sio X Fresh", image:"images/projet18.jpg", video:"https://www.youtube.com/embed/aZQjYPFOiUw"},
   {id:19, title:"Breeyo - Black out", image:"images/projet19.jpg", video:"https://www.youtube.com/embed/b0JleJ5lEYU"},
   {id:20, title:"Oklou - Harvest Sky", image:"images/projet20.jpg", video:"https://www.youtube.com/embed/B6MuFJ7Oepc"},
+  {id:21, title:"Oklou - Blade Bird", image:"images/projet21.jpg", video:"https://www.youtube.com/embed/JdiinD0PJWU"},
+  {id:22, title:"Oklou - Plague Dogs", image:"images/projet22.jpg", video:"https://www.youtube.com/embed/zHuJfx8lwZA"},
+  {id:23, title:"CMARG x Fresh", image:"images/projet23.jpg", video:"https://www.youtube.com/embed/9UiH4IZQvQg"},
 ];
 
 // Lire l'id dans l'URL
