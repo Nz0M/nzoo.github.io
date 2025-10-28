@@ -31,16 +31,20 @@ const project = projects.find(p => p.id === id);
 document.getElementById("project-title").textContent = project.title;
 document.getElementById("project-video").src = project.video;
 
-// Générer 2 suggestions aléatoires
+// Générer 2 suggestions aléatoires (mise en page avec hover et infos)
 const suggestionsDiv = document.getElementById("suggestions");
 const others = projects.filter(p => p.id !== id);
 const shuffled = others.sort(() => 0.5 - Math.random());
-const selected = shuffled.slice(0,2);
+const selected = shuffled.slice(0, 2);
 
 selected.forEach(p => {
   const div = document.createElement("div");
   div.className = "suggestion";
   div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-  div.innerHTML = `<img src="${p.image}" alt="${p.title}"><p>${p.title}</p>`;
+  div.innerHTML = `
+    <img src="${p.image}" alt="${p.title}">
+    <p>${p.title}</p>
+  `;
   suggestionsDiv.appendChild(div);
 });
+
