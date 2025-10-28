@@ -255,3 +255,37 @@ footer {
 .navbar-left a:hover {
   color: #aaa;
 }
+
+/* --- Menu en haut à gauche --- */
+.navbar-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.navbar-left ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-left a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 4px;
+}
+
+.navbar-left a:hover {
+  color: #aaa;
+}
+
+/* --- Lien actif (page en surbrillance) --- */
+.navbar-left a.active {
+  color: #fff;
+  border-bottom: 2px solid white;
+}

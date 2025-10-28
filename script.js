@@ -51,3 +51,17 @@ selected.forEach(p => {
   suggestionsDiv.appendChild(div);
 });
 
+// --- Mettre en surbrillance le lien actif ---
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname;
+
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const page = link.getAttribute("data-page");
+    if (path.includes("pictures") && page === "pictures") {
+      link.classList.add("active");
+    } else if ((path.includes("index") || path === "/") && page === "work") {
+      link.classList.add("active");
+    }
+  });
+});
+
