@@ -236,30 +236,28 @@ footer {
 /* --- Menu en haut à gauche --- */
 .navbar-left {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 40px; /* Décale le menu un peu plus vers le bas */
+  left: 40px; /* Décale le menu plus à droite depuis le bord */
   z-index: 1000;
 }
 
 .navbar-left ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 35px; /* espace entre Work et Pictures */
   padding: 0;
   margin: 0;
 }
 
+/* Liens */
 .navbar-left a {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  opacity: 0.5; /* Par défaut, un peu transparent */
+  opacity: 0.5;
   transition: opacity 0.3s ease;
-  font-size: 1.3rem; /* Augmente la taille ici */
-}
-
-.navbar-left a:hover {
-  opacity: 0.8;
+  font-size: 1.3rem; /* taille plus grande */
+  padding-bottom: 5px; /* espace en dessous du texte */
 }
 
 /* --- Lien actif (page en surbrillance) --- */
