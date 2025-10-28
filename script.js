@@ -51,17 +51,23 @@ selected.forEach(p => {
   suggestionsDiv.appendChild(div);
 });
 
-// --- Mettre en surbrillance le lien actif ---
+// --- Mettre en surbrillance (opacité) selon la page ---
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
 
   document.querySelectorAll(".nav-link").forEach(link => {
     const page = link.getAttribute("data-page");
-    if (path.includes("pictures") && page === "pictures") {
+    
+    // Détection de la page active
+    const isWorkPage = path.includes("index") || path === "/" || path.endsWith("index.html");
+    const isPicturesPage = path.includes("pictures");
+
+    if (isWorkPage && page === "work") {
       link.classList.add("active");
-    } else if ((path.includes("index") || path === "/") && page === "work") {
+    } else if (isPicturesPage && page === "pictures") {
       link.classList.add("active");
     }
   });
 });
+
 
