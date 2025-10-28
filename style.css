@@ -1,8 +1,11 @@
+/* === Police globale === */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Oswald", "Alternate Gothic Std No2", sans-serif;
 }
 
 body {
@@ -261,9 +264,4 @@ footer {
 /* --- Lien actif (page en surbrillance) --- */
 .navbar-left a.active {
   opacity: 1; /* 100% visible */
-}
-
-/* Police d'écriture */
-body {
-  font-family: "Oswald", sans-serif;
 }
