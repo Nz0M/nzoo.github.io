@@ -5,32 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projet</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+
+  <!-- ===== HEADER / NAVIGATION ===== -->
   <header>
-    <div class="logo">Portfolio</div>
-    <ul class="menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="index.html#projets">Projets</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+    <nav class="navbar-left">
+      <ul>
+        <li><a href="index.html">Work</a></li>
+        <li><a href="pictures.html">Pictures</a></li>
+      </ul>
+    </nav>
   </header>
 
+  <!-- ===== CONTENU DU PROJET ===== -->
   <main class="project-page">
-    <h1 id="project-title">Titre du projet</h1>
-    <iframe id="project-video" width="800" height="450" src="" title="Vidéo Projet" frameborder="0" allowfullscreen></iframe>
 
-<section class="suggestions-section">
-  <h2>You may also like</h2>
-  <div id="suggestions" class="suggestions"></div>
-</section>
+    <section class="project-content">
+      <h1 id="project-title">Titre du projet</h1>
+      <div class="video-container">
+        <iframe
+          id="project-video"
+          width="100%"
+          height="500"
+          src=""
+          title="Vidéo du projet"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
-      <!-- Suggestions générées par JS -->
-    </div>
+    <!-- ===== SUGGESTIONS ===== -->
+    <section class="suggestions-section">
+      <h2>You may also like</h2>
+      <div id="suggestions" class="suggestions">
+        <!-- Suggestions générées dynamiquement par JS -->
+      </div>
+    </section>
+
   </main>
 
-  <footer>&copy; 2025 Mon Portfolio</footer>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &copy; 2025 Nz0M - All rights reserved.
+  </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
+

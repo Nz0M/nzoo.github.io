@@ -153,16 +153,17 @@ footer {
   color: #666;
   font-size: 14px;
 }
+
 /* --- Section des suggestions --- */
 .suggestions-section {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .suggestions-section h2 {
   font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   text-align: left;
   margin-left: 20px;
 }
@@ -175,11 +176,12 @@ footer {
   width: 100%;
 }
 
+/* Chaque suggestion */
 .suggestion {
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .suggestion img {
@@ -187,33 +189,69 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
+}
+
+/* L'overlay comme à l'accueil */
+.suggestion .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 6px;
 }
 
 .suggestion:hover img {
   transform: scale(1.05);
 }
 
-/* Overlay infos au survol */
-.suggestion::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.suggestion:hover::after {
+.suggestion:hover .overlay {
   opacity: 1;
 }
 
-.suggestion p {
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
+.suggestion .overlay h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.suggestion .overlay p {
+  font-size: 1rem;
+  margin-top: 5px;
+  color: #ddd;
+}
+
+/* Menu à gauche sur projet.html */
+.navbar-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+.navbar-left ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-left a {
+  text-decoration: none;
   color: white;
-  font-size: 1.1rem;
   font-weight: 500;
-  z-index: 2;
+  transition: color 0.3s;
+}
+
+.navbar-left a:hover {
+  color: #aaa;
 }

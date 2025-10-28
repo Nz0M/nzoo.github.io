@@ -43,7 +43,10 @@ selected.forEach(p => {
   div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
   div.innerHTML = `
     <img src="${p.image}" alt="${p.title}">
-    <p>${p.title}</p>
+    <div class="overlay">
+      <h3>${p.title}</h3>
+      <p>Electro</p>
+    </div>
   `;
   suggestionsDiv.appendChild(div);
 });
