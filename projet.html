@@ -3,57 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet – Enzo Martin</title>
+  <title>Projet</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-  <script defer>
-    document.addEventListener("DOMContentLoaded", () => {
-      const projectId = localStorage.getItem("selectedProject");
-      const container = document.querySelector(".project-page");
-      const project = projects[projectId];
-
-      if (!project) {
-        container.innerHTML = "<p>Projet introuvable.</p>";
-        return;
-      }
-
-      // Affiche le projet principal
-      container.innerHTML = `
-        <h2>${project.title}</h2>
-        <iframe src="${project.youtube}" allowfullscreen></iframe>
-        <h3>Autres projets</h3>
-        <div class="suggestions"></div>
-      `;
-
-      // Affiche deux projets aléatoires
-      const keys = Object.keys(projects).filter(k => k !== projectId);
-      const randomTwo = keys.sort(() => 0.5 - Math.random()).slice(0, 2);
-
-      const suggestionsContainer = document.querySelector(".suggestions");
-      randomTwo.forEach(id => {
-        const p = projects[id];
-        const img = document.createElement("img");
-        img.src = p.image;
-        img.alt = p.title;
-        img.onclick = () => openProject(id);
-        suggestionsContainer.appendChild(img);
-      });
-    });
-  </script>
 </head>
 <body>
   <header>
-    <nav>
-      <h1 class="logo">ENZO MARTIN</h1>
-    </nav>
+    <div class="logo">Portfolio</div>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#projets">Projets</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
   </header>
 
-  <main>
-    <div class="project-page"></div>
+  <main class="project-page">
+    <h1 id="project-title">Titre du projet</h1>
+    <iframe id="project-video" width="800" height="450" src="" title="Vidéo Projet" frameborder="0" allowfullscreen></iframe>
+
+    <h2>Autres projets :</h2>
+    <div class="suggestions" id="suggestions">
+      <!-- Suggestions générées par JS -->
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
-  </footer>
+  <footer>&copy; 2025 Mon Portfolio</footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
