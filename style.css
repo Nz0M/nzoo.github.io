@@ -262,3 +262,8 @@ footer {
 .navbar-left a.active {
   opacity: 1; /* 100% visible */
 }
+
+/* Police d'écriture */
+body {
+  font-family: "Oswald", sans-serif;
+}
