@@ -27,66 +27,23 @@ header {
 }
 
 header {
-  position: relative;
+  position: relative; /* nécessaire pour le positionnement absolu de l’élément central */
   background: #0f0f0f;
   padding: 20px 50px;
+  display: flex;
+  justify-content: flex-start; /* menu à gauche */
+  align-items: center;
   border-bottom: 1px solid rgba(255,255,255,0.2); /* ton trait */
 }
 
-/* Header */
-header {
-  position: relative;
-  height: 120px; /* hauteur du header */
-  background: #0f0f0f;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-/* Titre centré */
-.header-title {
+.header-center {
   position: absolute;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 600;
-  line-height: 120px; /* centrer verticalement dans le header */
   letter-spacing: 2px;
-  text-align: center;
-}
-
-/* Menu flottant à gauche */
-.navbar-left {
-  position: absolute;
-  top: 0;
-  left: 20px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-left ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  padding: 0;
-  margin: 0;
-}
-
-.navbar-left a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-}
-
-.navbar-left a:hover {
-  opacity: 0.8;
-}
-
-.navbar-left a.active {
-  opacity: 1;
 }
 
 .menu {
