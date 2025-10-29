@@ -4,12 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projet – Enzo Martin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script defer src="projet.js"></script>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <nav class="navbar-left">
       <ul>
@@ -21,22 +18,36 @@
   </header>
 
   <main>
-    <section class="project-page">
-      <h1 id="project-title"></h1>
-      <p id="project-category" class="project-category"></p>
-      <iframe id="project-video" src="" allowfullscreen></iframe>
-    </section>
-
-    <section class="suggestions-section">
-      <h2>Autres projets</h2>
-      <div class="suggestions" id="suggestions-grid"></div>
-    </section>
+    <div class="project-page"></div>
   </main>
 
   <footer>
     <p>© 2025 Enzo Martin – Tous droits réservés.</p>
   </footer>
-  
+
   <script src="projet.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    const project = projects.find(p => p.id === id);
+    const container = document.querySelector(".project-page");
+
+    container.innerHTML = `
+      <h1>${project.title}</h1>
+      <p>${project.category}</p>
+      <iframe src="${project.youtube}" allowfullscreen></iframe>
+      <div class="suggestions">
+        ${projects.filter(p => p.id !== id).slice(0,4).map(p => `
+          <div class="suggestion" onclick="window.location.href='projet.html?id=${p.id}'">
+            <img src="${p.image}" alt="${p.title}">
+            <div class="overlay">
+              <h3>${p.title}</h3>
+              <p>${p.category}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  </script>
 </body>
 </html>
