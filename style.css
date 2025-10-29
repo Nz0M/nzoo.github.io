@@ -264,7 +264,6 @@ footer {
 
 /* --- Espacement entre menu et projets --- */
 main {
-  margin-left: 100px; /* espace horizontal pour laisser respirer le menu */
   margin-top: 60px;   /* espace vertical entre le menu et le début des projets */
 }
 
