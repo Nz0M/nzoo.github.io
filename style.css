@@ -33,17 +33,38 @@ header {
   border-bottom: 1px solid rgba(255,255,255,0.2); /* ton trait */
 }
 
-/* Texte centré en haut */
-.header-center {
-  text-align: center;
-  color: white;
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 15px; /* espace entre le texte et le menu */
+/* Header */
+header {
+  position: relative;
+  height: 120px; /* hauteur du header */
+  background: #0f0f0f;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-/* Menu en dessous */
+/* Titre centré */
+.header-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 120px; /* centrer verticalement dans le header */
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Menu flottant à gauche */
+.navbar-left {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-left ul {
   list-style: none;
   display: flex;
