@@ -156,15 +156,12 @@ main {
   margin-bottom: 25px;
 }
 
-.project-page h2 {
-  margin-bottom: 10px; /* moins d'espace au-dessus de la vidéo */
-  font-size: 28px;     /* taille du titre */
-}
-
-.project-page p {
-  font-size: 18px;    /* taille du texte catégorie */
-  margin-bottom: 20px; /* espace entre texte et vidéo */
-  color: #ccc;
+.project-page iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 /* === SUGGESTIONS === */
