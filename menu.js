@@ -1,9 +1,9 @@
-const burger = document.querySelector('#burger');
+const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 
 if (burger && navLinks) {
   burger.addEventListener('click', () => {
-    navLinks.classList.toggle('active'); // ouvre/ferme le menu
-    burger.classList.toggle('toggle');   // animation des 3 traits
+    navLinks.classList.toggle('active');
+    burger.classList.toggle('toggle');
   });
 }
