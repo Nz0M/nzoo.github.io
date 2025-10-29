@@ -236,28 +236,58 @@ footer {
 /* --- Menu en haut à gauche --- */
 .navbar-left {
   position: fixed;
-  top: 40px; /* Décale le menu un peu plus vers le bas */
-  left: 40px; /* Décale le menu plus à droite depuis le bord */
+  top: 20px;
+  left: 20px;
   z-index: 1000;
 }
 
 .navbar-left ul {
   list-style: none;
   display: flex;
-  gap: 35px; /* espace entre Work et Pictures */
+  gap: 25px;
   padding: 0;
   margin: 0;
 }
 
-/* Liens */
 .navbar-left a {
   text-decoration: none;
   color: white;
-  font-weight: 500;
-  opacity: 0.5;
+  font-weight: 600;
+  font-size: 1.2rem; /* texte plus grand pour Work et Pictures */
+  opacity: 0.5;      /* lien non actif semi-transparent */
   transition: opacity 0.3s ease;
-  font-size: 1.3rem; /* taille plus grande */
-  padding-bottom: 5px; /* espace en dessous du texte */
+}
+
+.navbar-left a:hover {
+  opacity: 0.8;
+}
+
+/* --- Espacement entre menu et projets --- */
+main {
+  margin-left: 100px; /* espace horizontal pour laisser respirer le menu */
+  margin-top: 60px;   /* espace vertical entre le menu et le début des projets */
+}
+
+/* --- Grille de projets --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: calc(100% - 100px); /* prend en compte le margin-left de main */
+  padding: 15px;
+}
+
+/* Responsive : 1 colonne sur petits écrans */
+@media (max-width: 900px) {
+  main {
+    margin-left: 20px; /* moins d'espace sur mobile */
+    margin-top: 30px;
+  }
+
+  .grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- Lien actif (page en surbrillance) --- */
