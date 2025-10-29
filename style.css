@@ -20,15 +20,15 @@ header {
   left: 0;
   width: 100%;
   background: #0f0f0f;
-  padding: 40px 50px 20px 50px;
+  padding: 20px 50px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
   z-index: 1000;
 }
 
-/* Texte centré "MARTIN ENZO" */
+/* Texte centré "MARTIN ENZO" cliquable */
 .header-center {
   position: absolute;
   top: 20px;
@@ -38,9 +38,16 @@ header {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 3px;
+  text-decoration: none;
+  opacity: 1;
+  transition: transform 0.3s ease;
 }
 
-/* --- MENU À GAUCHE FIXE --- */
+.header-center:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* --- MENU HORIZONTAL --- */
 .navbar-left {
   position: absolute;
   top: 25px;
@@ -65,17 +72,15 @@ header {
   transition: opacity 0.3s ease;
 }
 
-.navbar-left a:hover {
-  opacity: 0.8;
-}
-
+.navbar-left a:hover,
 .navbar-left a.active {
   opacity: 1;
 }
 
 /* === ESPACEMENT SOUS LE HEADER FIXE === */
 main {
-  margin-top: 130px;
+  margin-top: 100px;
+  padding: 0 20px;
 }
 
 /* === GRILLE DE PROJETS === */
@@ -84,7 +89,6 @@ main {
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   width: 100%;
-  padding: 15px;
 }
 
 .project {
@@ -153,9 +157,9 @@ main {
 }
 
 .project-page .category {
-  font-size: 1.4rem; /* plus grand pour Electro / Cadreur */
+  font-size: 1.4rem;
   color: #ccc;
-  margin-bottom: 40px; /* espace plus grand avant la vidéo */
+  margin-bottom: 40px;
   display: block;
 }
 
@@ -168,24 +172,12 @@ main {
 }
 
 /* === SUGGESTIONS === */
-.suggestions-section {
-  width: 100%;
-  margin-top: 60px;
-}
-
-.suggestions-section h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 25px;
-  text-align: left;
-  margin-left: 20px;
-}
-
 .suggestions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
+  margin-top: 50px;
 }
 
 .suggestion {
@@ -199,7 +191,6 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform 0.4s ease;
 }
 
@@ -266,22 +257,82 @@ footer {
 
 @media (max-width: 500px) {
   .navbar-left {
-    top: 10px;
-    left: 10px;
+    display: none;
   }
 
-  .navbar-left ul {
+  .burger {
+    display: flex;
+    cursor: pointer;
     flex-direction: column;
-    gap: 8px;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 1001;
   }
 
-  .navbar-left a {
-    font-size: 0.9rem;
+  .burger div {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
   }
 
-  .header-center {
-    font-size: 18px;
-    top: 8px;
+  .burger.toggle div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .burger.toggle div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.toggle div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Menu fullscreen centré */
+  #nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 15, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  #nav-links.active {
+    left: 0;
+  }
+
+  #nav-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+
+  #nav-links a {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  #nav-links a:hover {
+    opacity: 1;
   }
 
   main {
@@ -300,112 +351,4 @@ footer {
     font-size: 1.2rem;
     margin-bottom: 30px;
   }
-}
-
-/* === Burger menu mobile === */
-.burger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 20px;
-  position: fixed;
-  top: 25px;
-  left: 25px;
-  z-index: 1001;
-}
-
-.burger div {
-  width: 100%;
-  height: 3px;
-  background-color: white;
-  transition: all 0.3s ease;
-}
-
-.burger.toggle div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.toggle div:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.toggle div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-@media (max-width: 500px) {
-  .burger {
-    display: flex;
-  }
-
-  /* Menu fullscreen centré */
-@media (max-width: 500px) {
-  #nav-links {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 15, 15, 0.95);
-    display: flex;
-    justify-content: center; /* centre verticalement le contenu */
-    align-items: center;     /* centre horizontalement le contenu */
-    transition: left 0.3s ease;
-    z-index: 1000;
-    flex-direction: column;
-  }
-
-  #nav-links.active {
-    left: 0;
-  }
-
-  #nav-links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* espace entre WORK et PICTURES */
-    padding: 0;
-    margin: 0;
-    align-items: center; /* centre horizontalement les liens */
-  }
-
-  #nav-links a {
-    font-size: 2rem;
-    font-weight: 600;
-    color: white;
-    text-decoration: none;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-  }
-
-  #nav-links a:hover {
-    opacity: 1;
-  }
-}
-
-/* Cache le menu horizontal (WORK / PICTURES) derrière le burger sur mobile */
-@media (max-width: 500px) {
-  .navbar-left {
-    display: none;
-  }
-}
-/* === Lien du titre MARTIN ENZO (pleinement visible) === */
-.header-center {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-decoration: none;
-  opacity: 1; /* visible à 100 % */
-  transition: transform 0.3s ease;
-}
-
-.header-center:hover {
-  transform: translateX(-50%) scale(1.05); /* petit zoom au survol */
 }
