@@ -3,56 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet</title>
+  <title>Projet – Enzo Martin</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
-<body>
 
-  <!-- ===== HEADER / NAVIGATION ===== -->
+<body>
+  <!-- Header -->
   <header>
     <nav class="navbar-left">
       <ul>
-        <li><a href="index.html">Work</a></li>
-        <li><a href="pictures.html">Pictures</a></li>
+        <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
+        <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
       </ul>
     </nav>
+    <div class="header-center">MARTIN ENZO</div>
   </header>
 
-  <!-- ===== CONTENU DU PROJET ===== -->
+  <!-- Contenu du projet -->
   <main class="project-page">
+    <h1 id="project-title">Titre du projet</h1>
+    <h3 id="project-category" class="project-category"></h3>
+    <iframe id="project-video" src="" frameborder="0" allowfullscreen></iframe>
 
-    <section class="project-content">
-      <h1 id="project-title">Titre du projet</h1>
-      <div class="video-container">
-        <iframe
-          id="project-video"
-          width="100%"
-          height="500"
-          src=""
-          title="Vidéo du projet"
-          frameborder="0"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
-
-    <!-- ===== SUGGESTIONS ===== -->
     <section class="suggestions-section">
       <h2>You may also like</h2>
-      <div id="suggestions" class="suggestions">
-        <!-- Suggestions générées dynamiquement par JS -->
-      </div>
+      <div id="suggestions" class="suggestions"></div>
     </section>
-
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
-    &copy; 2025 Nz0M - All rights reserved.
+    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
   </footer>
 
+  <script>
+    // Récupération du projet depuis le localStorage
+    const project = JSON.parse(localStorage.getItem("selectedProject"));
+
+    if (project) {
+      document.getElementById("project-title").textContent = project.title;
+      document.getElementById("project-category").textContent = project.category;
+      document.getElementById("project-video").src = project.video;
+    } else {
+      document.getElementById("project-title").textContent = "Projet introuvable";
+    }
+
+    // Surbrillance du menu
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.style.opacity = link.dataset.page === "work" ? "1" : "0.5";
+    });
+  </script>
 </body>
 </html>
-
