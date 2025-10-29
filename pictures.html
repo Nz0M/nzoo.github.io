@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pictures - Nz0M</title>
+  <title>Pictures – Enzo Martin</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <nav class="navbar-left">
+    <div class="header-center">MARTIN ENZO</div>
+
+    <!-- Menu desktop -->
+    <nav class="navbar-left" id="nav-links">
       <ul>
-        <li><a href="index.html">WORK</a></li>
-        <li><a href="pictures.html" class="active">PICTURES</a></li>
+        <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
+        <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
       </ul>
     </nav>
-      <!-- Texte centré -->
-  <div class="header-center">MARTIN ENZO</div>
+
     <!-- Bouton burger pour mobile -->
-  <div class="burger" id="burger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <div class="burger" id="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </header>
 
   <main>
@@ -31,25 +33,29 @@
       <div class="grid">
         <div class="project">
           <img src="images/pic1.jpg" alt="Photo 1">
-          <div class="overlay"><h3>Nom du shooting</h3><p>Catégorie</p></div>
+          <div class="overlay">
+            <h3>Nom du shooting</h3>
+            <p>Catégorie</p>
+          </div>
         </div>
+
         <div class="project">
           <img src="images/pic2.jpg" alt="Photo 2">
-          <div class="overlay"><h3>Nom du shooting</h3><p>Catégorie</p></div>
+          <div class="overlay">
+            <h3>Nom du shooting</h3>
+            <p>Catégorie</p>
+          </div>
         </div>
-        <!-- Tu pourras en ajouter autant que tu veux -->
+        <!-- Ajoute ici autant d’images que tu veux -->
       </div>
     </section>
   </main>
-  <script>
-  const burger = document.querySelector('.burger');
-  const navLinks = document.getElementById('nav-links');
 
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    burger.classList.toggle('toggle');
-  });
-</script>
-<script src="menu.js"></script>
+  <footer>
+    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+  </footer>
+
+  <!-- Script du menu burger -->
+  <script src="menu.js"></script>
 </body>
 </html>
