@@ -3,55 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pictures - Nz0M</title>
+  <title>Pictures – Enzo Martin</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <!-- Texte centré cliquable -->
-    <a href="index.html" class="header-center">MARTIN ENZO</a>
-
-    <!-- Bouton burger pour mobile -->
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-    <!-- Menu fullscreen mobile -->
-    <nav id="nav-links">
+    <nav class="navbar-left">
       <ul>
         <li><a href="index.html">WORK</a></li>
         <li><a href="pictures.html" class="active">PICTURES</a></li>
       </ul>
     </nav>
+
+    <a href="index.html" class="header-center">MARTIN ENZO</a>
+
+    <div class="burger" id="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </header>
 
   <main>
     <section class="pictures-gallery">
-      <h1>Pictures</h1>
-      <div class="grid" id="pictures-grid">
-        <!-- Projets seront générés ici -->
-      </div>
+      <div class="grid"></div>
     </section>
   </main>
 
+  <footer>
+    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+  </footer>
+
   <script src="projet.js"></script>
   <script>
-    const grid = document.getElementById("pictures-grid");
-    const picturesProjects = projects.filter(p => p.category.toLowerCase() === "pictures");
-
-    grid.innerHTML = picturesProjects.map(p => `
-      <div class="project">
-        <img src="${p.image}" alt="${p.title}">
-        <div class="overlay">
-          <h3>${p.title}</h3>
-          <p>${p.category}</p>
+    const container = document.querySelector('.grid');
+    projects.filter(p => p.type === "pictures").forEach(project => {
+      container.innerHTML += `
+        <div class="project">
+          <img src="${project.image}" alt="${project.title}">
+          <div class="overlay">
+            <h3>${project.title}</h3>
+            <p>${project.category}</p>
+          </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    });
   </script>
+
+  <div id="nav-links">
+    <ul>
+      <li><a href="index.html">WORK</a></li>
+      <li><a href="pictures.html">PICTURES</a></li>
+    </ul>
+  </div>
 
   <script src="menu.js"></script>
 </body>

@@ -12,15 +12,15 @@
     <!-- Menu principal -->
     <nav class="navbar-left">
       <ul>
-        <li><a href="index.html" class="nav-link active" data-page="work">WORK</a></li>
-        <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
+        <li><a href="index.html" class="nav-link active">WORK</a></li>
+        <li><a href="pictures.html" class="nav-link">PICTURES</a></li>
       </ul>
     </nav>
 
-    <!-- Texte centré cliquable pour revenir à l'accueil -->
+    <!-- Texte centré cliquable -->
     <a href="index.html" class="header-center">MARTIN ENZO</a>
 
-    <!-- Bouton burger pour mobile -->
+    <!-- Bouton burger -->
     <div class="burger" id="burger">
       <div></div>
       <div></div>
@@ -30,10 +30,7 @@
 
   <main>
     <section class="projects-grid">
-      <h1>Work</h1>
-      <div class="grid">
-        <!-- Les projets seront générés par projet.js -->
-      </div>
+      <div class="grid"></div>
     </section>
   </main>
 
@@ -41,11 +38,11 @@
     <p>© 2025 Enzo Martin – Tous droits réservés.</p>
   </footer>
 
+  <!-- Génération des projets WORK uniquement -->
   <script src="projet.js"></script>
   <script>
-    // Génération des projets uniquement pour Work
     const container = document.querySelector('.grid');
-    projects.filter(p => p.category.toLowerCase() !== "pictures").forEach(project => {
+    projects.filter(p => p.type === "work").forEach(project => {
       container.innerHTML += `
         <div class="project" onclick="window.location.href='projet.html?id=${project.id}'">
           <img src="${project.image}" alt="${project.title}">
@@ -58,7 +55,7 @@
     });
   </script>
 
-  <!-- Menu burger -->
+  <!-- Menu burger mobile -->
   <div id="nav-links">
     <ul>
       <li><a href="index.html">WORK</a></li>
