@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-page="pictures">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,55 +7,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <a href="index.html" class="header-center">MARTIN ENZO</a>
+<body data-page="pictures">
 
-    <!-- Menu desktop -->
-    <nav class="navbar-left" id="nav-links">
-      <ul>
-        <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
-        <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
-      </ul>
-    </nav>
+<header>
+  <div class="burger" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-    <!-- Bouton burger pour mobile -->
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
+  <nav class="navbar-left" id="nav-links">
+    <ul>
+      <li><a href="index.html" data-page="work">WORK</a></li>
+      <li><a href="pictures.html" data-page="pictures">PICTURES</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-center" onclick="window.location.href='index.html'">MARTIN ENZO</div>
+</header>
+
+<main>
+  <section class="pictures-gallery">
+    <h1>Pictures</h1>
+    <div class="grid">
+      <!-- Génération des photos via JS -->
     </div>
-  </header>
+  </section>
+</main>
 
-  <main>
-    <section class="pictures-gallery">
-      <h1>Pictures</h1>
-      <div class="grid">
-        <div class="project">
-          <img src="images/pic1.jpg" alt="Photo 1">
-          <div class="overlay">
-            <h3>Nom du shooting</h3>
-            <p>Catégorie</p>
-          </div>
-        </div>
+<footer>
+  <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+</footer>
 
-        <div class="project">
-          <img src="images/pic2.jpg" alt="Photo 2">
-          <div class="overlay">
-            <h3>Nom du shooting</h3>
-            <p>Catégorie</p>
-          </div>
+<script src="projet.js"></script>
+<script src="menu.js"></script>
+<script>
+  const grid = document.querySelector('.grid');
+  projects.forEach(project => {
+    grid.innerHTML += `
+      <div class="project">
+        <img src="${project.image}" alt="${project.title}">
+        <div class="overlay">
+          <h3>${project.title}</h3>
+          <p>${project.category}</p>
         </div>
-        <!-- Ajoute ici autant d’images que tu veux -->
       </div>
-    </section>
-  </main>
+    `;
+  });
+</script>
 
-  <footer>
-    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
-  </footer>
-
-  <!-- Script du menu burger -->
-  <script src="menu.js"></script>
 </body>
 </html>

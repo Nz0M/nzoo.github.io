@@ -1,66 +1,60 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-page="work">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio – Enzo Martin</title>
+  <title>Work – Enzo Martin</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <a href="index.html" class="header-center">MARTIN ENZO</a>
+<body data-page="work">
 
-    <!-- Menu classique / desktop -->
-    <nav class="navbar-left" id="nav-links">
-      <ul>
-        <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
-        <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
-      </ul>
-    </nav>
+<header>
+  <!-- Burger mobile -->
+  <div class="burger" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-    <!-- Burger menu / mobile -->
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </header>
+  <!-- Menu -->
+  <nav class="navbar-left" id="nav-links">
+    <ul>
+      <li><a href="index.html" data-page="work">WORK</a></li>
+      <li><a href="pictures.html" data-page="pictures">PICTURES</a></li>
+    </ul>
+  </nav>
 
-  <main>
-    <section class="grid" id="projects-grid"></section>
-  </main>
+  <!-- Texte central -->
+  <div class="header-center" onclick="window.location.href='index.html'">MARTIN ENZO</div>
+</header>
 
-  <footer>
-    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
-  </footer>
+<main>
+  <section class="grid">
+    <!-- Génération des projets via JS -->
+  </section>
+</main>
 
-  <script src="projet.js"></script>
-  <script>
-    const grid = document.getElementById("projects-grid");
+<footer>
+  <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+</footer>
 
-    projects.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "project";
-      div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-      div.innerHTML = `
-        <img src="${p.image}" alt="${p.title}">
+<script src="projet.js"></script>
+<script src="menu.js"></script>
+<script>
+  const grid = document.querySelector('.grid');
+  projects.forEach(project => {
+    grid.innerHTML += `
+      <div class="project" onclick="window.location.href='projet.html?id=${project.id}'">
+        <img src="${project.image}" alt="${project.title}">
         <div class="overlay">
-          <h3>${p.title}</h3>
-          <p>${p.category}</p>
+          <h3>${project.title}</h3>
+          <p>${project.category}</p>
         </div>
-      `;
-      grid.appendChild(div);
-    });
+      </div>
+    `;
+  });
+</script>
 
-    // Menu actif
-    const currentPage = "work";
-    document.querySelectorAll(".nav-link").forEach(link => {
-      link.style.opacity = (link.dataset.page === currentPage) ? "1" : "0.5";
-    });
-  </script>
-
-  <script src="menu.js"></script>
 </body>
 </html>
