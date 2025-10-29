@@ -341,19 +341,20 @@ footer {
   }
 
   /* Menu fullscreen centré */
+@media (max-width: 500px) {
   #nav-links {
     position: fixed;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 15, 15, 0.95); /* léger effet transparent */
+    background-color: rgba(15, 15, 15, 0.95);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* centre verticalement le contenu */
+    align-items: center;     /* centre horizontalement le contenu */
     transition: left 0.3s ease;
     z-index: 1000;
+    flex-direction: column;
   }
 
   #nav-links.active {
@@ -361,13 +362,13 @@ footer {
   }
 
   #nav-links ul {
+    list-style: none;
+    display: flex;
     flex-direction: column;
-    gap: 40px;
-    justify-content: center;  /* centre verticalement */
-    align-items: center;       /* centre horizontalement */
-    width: 100%;
-    height: 100%;
-    display: flex;             /* s’assure que la grille est bien centrée */
+    gap: 40px; /* espace entre WORK et PICTURES */
+    padding: 0;
+    margin: 0;
+    align-items: center; /* centre horizontalement les liens */
   }
 
   #nav-links a {
