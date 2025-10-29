@@ -340,13 +340,14 @@ footer {
     display: flex;
   }
 
+  /* Menu fullscreen centré */
   #nav-links {
     position: fixed;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 15, 15, 0.95);
+    background-color: rgba(15, 15, 15, 0.95); /* léger effet transparent */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -361,15 +362,23 @@ footer {
 
   #nav-links ul {
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
   }
 
   #nav-links a {
     font-size: 2rem;
+    font-weight: 600;
     color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  #nav-links a:hover {
     opacity: 1;
   }
 }
+
 /* Cache le menu horizontal (WORK / PICTURES) derrière le burger sur mobile */
 @media (max-width: 500px) {
   .navbar-left {
