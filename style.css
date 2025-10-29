@@ -26,16 +26,46 @@ header {
   border-bottom: 1px solid #222; /* <-trait au niveau du menu */
 }
 
+header {
+  position: relative;
+  background: #0f0f0f;
+  padding: 20px 50px;
+  border-bottom: 1px solid rgba(255,255,255,0.2); /* ton trait */
+}
+
+/* Texte centré en haut */
 .header-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: center;
   color: white;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
   letter-spacing: 2px;
-  pointer-events: none; /* pour que ça ne bloque pas les clics sur le menu */
+  margin-bottom: 15px; /* espace entre le texte et le menu */
+}
+
+/* Menu en dessous */
+.navbar-left ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-left a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-left a:hover {
+  opacity: 0.8;
+}
+
+.navbar-left a.active {
+  opacity: 1;
 }
 
 .menu {
