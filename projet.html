@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet</title>
+  <title>Projet – Enzo Martin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <script defer src="projet.js"></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <nav class="navbar-left">
       <ul>
-        <li><a href="index.html" data-page="work">WORK</a></li>
-        <li><a href="pictures.html" data-page="pictures">PICTURES</a></li>
+        <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
+        <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
       </ul>
     </nav>
+    <div class="header-center">MARTIN ENZO</div>
   </header>
 
-  <main class="project-page">
-    <h1 id="project-title">Titre du projet</h1>
-    <p id="project-category" class="category"></p>
-
-    <iframe id="project-video" src="" title="Vidéo du projet" frameborder="0" allowfullscreen></iframe>
+  <main>
+    <section class="project-page">
+      <h1 id="project-title"></h1>
+      <p id="project-category" class="project-category"></p>
+      <iframe id="project-video" src="" allowfullscreen></iframe>
+    </section>
 
     <section class="suggestions-section">
-      <h2>You may also like</h2>
-      <div id="suggestions" class="suggestions"></div>
+      <h2>Autres projets</h2>
+      <div class="suggestions" id="suggestions-grid"></div>
     </section>
   </main>
 
-  <footer>&copy; 2025 Enzo Martin</footer>
+  <footer>
+    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
