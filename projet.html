@@ -15,6 +15,12 @@
       </ul>
     </nav>
     <div class="header-center">MARTIN ENZO</div>
+      <!-- Bouton burger pour mobile -->
+  <div class="burger-menu" id="burger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   </header>
 
   <main>
@@ -49,5 +55,15 @@
       </div>
     `;
   </script>
+<script>
+  const burger = document.querySelector('.burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    burger.classList.toggle('toggle');
+  });
+</script>
+
 </body>
 </html>
