@@ -17,11 +17,10 @@ body {
 header {
   position: relative;
   background: #0f0f0f;
-  padding: 20px 50px;
+  padding: 40px 50px 20px 50px; /* espace supérieur augmenté */
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 40px 50px 20px 50px; /* trait transparent augmenté à 40px */
   border-bottom: 1px solid rgba(255,255,255,0.2);
   z-index: 100;
 }
@@ -29,7 +28,7 @@ header {
 /* Texte centré "MARTIN ENZO" */
 .header-center {
   position: absolute;
-  top: 15px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -73,7 +72,7 @@ header {
 
 /* === ESPACEMENT PAGE PRINCIPALE === */
 main {
-  margin-top: 100px; /* espace sous le header */
+  margin-top: 100px;
 }
 
 /* === GRILLE DE PROJETS === */
@@ -146,14 +145,15 @@ main {
 }
 
 .project-page h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  font-size: 2.4rem;
+  margin-bottom: 8px;
 }
 
-.project-category {
-  font-size: 1.1rem;
+.project-page .category {
+  display: block;
+  font-size: 1.4rem;
   color: #ccc;
-  margin-bottom: 25px;
+  margin-bottom: 35px; /* espace entre la catégorie et la vidéo */
 }
 
 .project-page iframe {
@@ -161,7 +161,7 @@ main {
   height: 500px;
   border: none;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 40px; /* espace avant les suggestions */
 }
 
 /* === SUGGESTIONS === */
@@ -255,6 +255,15 @@ footer {
     margin-top: 80px;
   }
 
+  .project-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .project-page .category {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
   .project-page iframe {
     height: 55vw;
   }
@@ -286,6 +295,15 @@ footer {
 
   .project {
     height: 70vw;
+  }
+
+  .project-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .project-page .category {
+    font-size: 1rem;
+    margin-bottom: 20px;
   }
 
   .project-page iframe {

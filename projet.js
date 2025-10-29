@@ -1,4 +1,4 @@
-// Tableau des projets complet avec titres, catégories, images et vidéos
+// === Tableau des projets ===
 const projects = [
   {id:1, title:"Victor Solf", category:"Electro", video:"https://www.youtube.com/embed/nwKivhgaVGc", image:"images/projet1.jpg"},
   {id:2, title:"Synapson X Clou", category:"Electro", video:"https://www.youtube.com/embed/Rn8zcOwZc6M", image:"images/projet2.jpg"},
@@ -25,54 +25,44 @@ const projects = [
   {id:23, title:"CMARG x Fresh", category:"Cadreur", video:"https://www.youtube.com/embed/9UiH4IZQvQg", image:"images/projet23.jpg"},
 ];
 
-// Récupérer l'ID du projet depuis l'URL
+// === Récupération de l'ID du projet dans l'URL ===
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = parseInt(urlParams.get('id'));
-
-// Trouver le projet correspondant
 const project = projects.find(p => p.id === projectId);
 
-if(project){
-  // Affichage du projet
+if (project) {
+  // === Contenu principal ===
   const projectContainer = document.querySelector(".project-page");
   projectContainer.innerHTML = `
     <h1>${project.title}</h1>
-    <p>${project.category}</p>
+    <span class="category">${project.category}</span>
     <iframe src="${project.video}" allowfullscreen></iframe>
     <div class="suggestions-section">
-      <h2>Autres projets</h2>
+      <h2>YOU MAY ALSO LIKE</h2>
       <div class="suggestions"></div>
     </div>
   `;
 
-// Sélectionner la section des suggestions et changer le titre
-const suggestionsSectionTitle = document.querySelector(".suggestions-section h2");
-if(suggestionsSectionTitle) {
-  suggestionsSectionTitle.textContent = "YOU MAY ALSO LIKE";
-}
+  // === Génération des suggestions (2 aléatoires) ===
+  const suggestionsContainer = document.querySelector(".suggestions");
+  const otherProjects = projects.filter(p => p.id !== projectId);
+  const shuffled = otherProjects.sort(() => 0.5 - Math.random());
+  const suggestions = shuffled.slice(0, 2);
 
-// Générer les suggestions aléatoires (2 projets différents)
-const suggestionsContainer = document.querySelector(".suggestions");
-const otherProjects = projects.filter(p => p.id !== projectId);
+  suggestions.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "suggestion";
+    div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
+    div.innerHTML = `
+      <img src="${p.image}" alt="${p.title}">
+      <div class="overlay">
+        <h3>${p.title}</h3>
+        <p>${p.category}</p>
+      </div>
+    `;
+    suggestionsContainer.appendChild(div);
+  });
 
-// Mélanger et prendre les 2 premiers
-const shuffled = otherProjects.sort(() => 0.5 - Math.random());
-const suggestions = shuffled.slice(0, 2);
-
-suggestions.forEach(p => {
-  const div = document.createElement("div");
-  div.className = "suggestion";
-  div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-  div.innerHTML = `
-    <img src="${p.image}" alt="${p.title}">
-    <div class="overlay">
-      <h3>${p.title}</h3>
-      <p>${p.category}</p>
-    </div>
-  `;
-  suggestionsContainer.appendChild(div);
-});
-
-}else{
+} else {
   document.querySelector(".project-page").innerHTML = "<p>Projet non trouvé.</p>";
 }
