@@ -44,11 +44,11 @@ if(project){
       <div class="suggestions"></div>
     </div>
   `;
-  
+
 // Sélectionner la section des suggestions et changer le titre
 const suggestionsSectionTitle = document.querySelector(".suggestions-section h2");
 if(suggestionsSectionTitle) {
-  suggestionsSectionTitle.textContent = "You may also like";
+  suggestionsSectionTitle.textContent = "YOU MAY ALSO LIKE";
 }
 
 // Générer les suggestions aléatoires (2 projets différents)
