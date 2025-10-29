@@ -9,24 +9,24 @@
 </head>
 <body>
   <!-- Header -->
- <header>
-  <div class="header-center">MARTIN ENZO</div>
+  <header>
+    <div class="header-center">MARTIN ENZO</div>
 
-  <!-- Menu classique / desktop -->
-  <nav class="navbar-left" id="nav-links">
-    <ul>
-      <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
-      <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
-    </ul>
-  </nav>
+    <!-- Menu classique / desktop -->
+    <nav id="nav-links" class="navbar-left">
+      <ul>
+        <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
+        <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
+      </ul>
+    </nav>
 
-  <!-- Burger menu / mobile -->
-  <div class="burger" id="burger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</header>
+    <!-- Burger menu / mobile -->
+    <div id="burger" class="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
 
   <main>
     <section class="grid" id="projects-grid"></section>
@@ -38,8 +38,8 @@
 
   <script src="projet.js"></script>
   <script>
+    // Génération des projets
     const grid = document.getElementById("projects-grid");
-
     projects.forEach(p => {
       const div = document.createElement("div");
       div.className = "project";
@@ -59,17 +59,15 @@
     document.querySelectorAll(".nav-link").forEach(link => {
       link.style.opacity = (link.dataset.page === currentPage) ? "1" : "0.5";
     });
-  </script>
-  
-  <script>
-  const burger = document.getElementById('burger-menu');
-  const nav = document.querySelector('.navbar-left ul');
 
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    nav.classList.toggle('open');
-  });
-</script>
-<script src="menu.js"></script>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav-links');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('toggle'); // animation burger
+      nav.classList.toggle('active');    // affiche/masque menu mobile
+    });
+  </script>
 </body>
 </html>

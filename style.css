@@ -335,6 +335,7 @@ footer {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* Menu mobile */
 @media (max-width: 500px) {
   .burger {
     display: flex;
