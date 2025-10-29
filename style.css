@@ -363,6 +363,11 @@ footer {
   #nav-links ul {
     flex-direction: column;
     gap: 40px;
+    justify-content: center;  /* centre verticalement */
+    align-items: center;       /* centre horizontalement */
+    width: 100%;
+    height: 100%;
+    display: flex;             /* s’assure que la grille est bien centrée */
   }
 
   #nav-links a {
