@@ -44,28 +44,34 @@ if(project){
       <div class="suggestions"></div>
     </div>
   `;
-
-  // Générer les suggestions aléatoires (3 projets différents)
-  const suggestionsContainer = document.querySelector(".suggestions");
-  const otherProjects = projects.filter(p => p.id !== projectId);
   
-  // Mélanger et prendre les 3 premiers
-  const shuffled = otherProjects.sort(() => 0.5 - Math.random());
-  const suggestions = shuffled.slice(0, 3);
+// Sélectionner la section des suggestions et changer le titre
+const suggestionsSectionTitle = document.querySelector(".suggestions-section h2");
+if(suggestionsSectionTitle) {
+  suggestionsSectionTitle.textContent = "You may also like";
+}
 
-  suggestions.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "suggestion";
-    div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-    div.innerHTML = `
-      <img src="${p.image}" alt="${p.title}">
-      <div class="overlay">
-        <h3>${p.title}</h3>
-        <p>${p.category}</p>
-      </div>
-    `;
-    suggestionsContainer.appendChild(div);
-  });
+// Générer les suggestions aléatoires (2 projets différents)
+const suggestionsContainer = document.querySelector(".suggestions");
+const otherProjects = projects.filter(p => p.id !== projectId);
+
+// Mélanger et prendre les 2 premiers
+const shuffled = otherProjects.sort(() => 0.5 - Math.random());
+const suggestions = shuffled.slice(0, 2);
+
+suggestions.forEach(p => {
+  const div = document.createElement("div");
+  div.className = "suggestion";
+  div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
+  div.innerHTML = `
+    <img src="${p.image}" alt="${p.title}">
+    <div class="overlay">
+      <h3>${p.title}</h3>
+      <p>${p.category}</p>
+    </div>
+  `;
+  suggestionsContainer.appendChild(div);
+});
 
 }else{
   document.querySelector(".project-page").innerHTML = "<p>Projet non trouvé.</p>";
