@@ -8,9 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
-
 <body>
-  <!-- Header -->
   <header>
     <nav class="navbar-left">
       <ul>
@@ -18,54 +16,15 @@
         <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
       </ul>
     </nav>
-
-    <!-- Texte centré -->
     <div class="header-center">MARTIN ENZO</div>
   </header>
 
-  <!-- Section principale -->
   <main>
     <section class="grid" id="projects-grid"></section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Enzo Martin – Tous droits réservés.</p>
   </footer>
-
-  <script>
-    // === Génération dynamique des projets ===
-    const grid = document.getElementById("projects-grid");
-    projects.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "project";
-      div.dataset.id = p.id;
-      div.dataset.title = p.title;
-      div.dataset.category = p.category;
-      div.dataset.video = p.video;
-
-      div.innerHTML = `
-        <img src="${p.image}" alt="${p.title}">
-        <div class="overlay">
-          <h3>${p.title}</h3>
-          <p>${p.category}</p>
-        </div>
-      `;
-
-      // Sauvegarde et redirection
-      div.addEventListener("click", () => {
-        localStorage.setItem("selectedProject", JSON.stringify(p));
-        window.location.href = "projet.html";
-      });
-
-      grid.appendChild(div);
-    });
-
-    // === Surbrillance du menu ===
-    const currentPage = "work";
-    document.querySelectorAll(".nav-link").forEach(link => {
-      link.style.opacity = link.dataset.page === currentPage ? "1" : "0.5";
-    });
-  </script>
 </body>
 </html>
