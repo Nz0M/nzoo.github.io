@@ -24,50 +24,67 @@ const projects = [
   {id:23, title:"CMARG x Fresh", image:"images/projet23.jpg", video:"https://www.youtube.com/embed/9UiH4IZQvQg"},
 ];
 
-// Lire l'id dans l'URL
-const params = new URLSearchParams(window.location.search);
-const id = parseInt(params.get("id")) || 1; // par défaut projet 1
+// === PAGE D’ACCUEIL (index.html) ===
+if (document.getElementById("projects-grid")) {
+  const grid = document.getElementById("projects-grid");
 
-const project = projects.find(p => p.id === id);
-
-// Afficher le projet
-document.getElementById("project-title").textContent = project.title;
-document.getElementById("project-video").src = project.video;
-
-// Générer 2 suggestions aléatoires (mise en page avec hover et infos)
-const suggestionsDiv = document.getElementById("suggestions");
-const others = projects.filter(p => p.id !== id);
-const shuffled = others.sort(() => 0.5 - Math.random());
-const selected = shuffled.slice(0, 2);
-
-selected.forEach(p => {
-  const div = document.createElement("div");
-  div.className = "suggestion";
-  div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-  div.innerHTML = `
-    <img src="${p.image}" alt="${p.title}">
-    <div class="overlay">
-      <h3>${p.title}</h3>
-      <p>Electro</p>
-    </div>
-  `;
-  suggestionsDiv.appendChild(div);
-});
-
-// --- Mettre en surbrillance (opacité) selon la page ---
-document.addEventListener("DOMContentLoaded", () => {
-  const current = window.location.pathname.split("/").pop() || "index.html";
-
-  document.querySelectorAll(".nav-link").forEach(link => {
-    const page = link.getAttribute("data-page");
-
-    if ((current === "" || current === "index.html") && page === "work") {
-      link.classList.add("active");
-    } 
-    else if (current === "pictures.html" && page === "pictures") {
-      link.classList.add("active");
-    }
+  projects.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "project";
+    div.onclick = () => {
+      localStorage.setItem("selectedProject", JSON.stringify(p));
+      window.location.href = `projet.html?id=${p.id}`;
+    };
+    div.innerHTML = `
+      <img src="${p.image}" alt="${p.title}">
+      <div class="overlay">
+        <h3>${p.title}</h3>
+        <p>${p.category}</p>
+      </div>
+    `;
+    grid.appendChild(div);
   });
-});
 
+  // Menu actif
+  const currentPage = "work";
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.style.opacity = link.dataset.page === currentPage ? "1" : "0.5";
+  });
+}
 
+// === PAGE PROJET (projet.html) ===
+if (document.getElementById("project-title")) {
+  const params = new URLSearchParams(window.location.search);
+  const projectId = parseInt(params.get("id"));
+  const project = projects.find(p => p.id === projectId) || JSON.parse(localStorage.getItem("selectedProject"));
+
+  if (project) {
+    document.getElementById("project-title").textContent = project.title;
+    document.getElementById("project-category").textContent = project.category;
+    document.getElementById("project-video").src = project.video;
+
+    // Suggestions aléatoires
+    const suggestionsDiv = document.getElementById("suggestions");
+    const randomSuggestions = projects
+      .filter(p => p.id !== project.id)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2);
+
+    randomSuggestions.forEach(s => {
+      const suggestion = document.createElement("div");
+      suggestion.className = "suggestion";
+      suggestion.onclick = () => {
+        localStorage.setItem("selectedProject", JSON.stringify(s));
+        window.location.href = `projet.html?id=${s.id}`;
+      };
+      suggestion.innerHTML = `
+        <img src="${s.image}" alt="${s.title}">
+        <div class="overlay">
+          <h3>${s.title}</h3>
+          <p>${s.category}</p>
+        </div>
+      `;
+      suggestionsDiv.appendChild(suggestion);
+    });
+  }
+}
