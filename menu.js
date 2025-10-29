@@ -1,9 +1,9 @@
 const burger = document.getElementById('burger');
-const navLinks = document.getElementById('nav-links');
+const nav = document.getElementById('nav-links');
 
-if (burger && navLinks) {
+if (burger && nav) {
   burger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    burger.classList.toggle('toggle');
+    burger.classList.toggle('toggle'); // animation burger
+    nav.classList.toggle('active');    // affiche/masque menu mobile
   });
 }

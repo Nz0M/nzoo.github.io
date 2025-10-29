@@ -13,7 +13,7 @@
     <div class="header-center">MARTIN ENZO</div>
 
     <!-- Menu classique / desktop -->
-    <nav id="nav-links" class="navbar-left">
+    <nav class="navbar-left" id="nav-links">
       <ul>
         <li><a href="index.html" class="nav-link" data-page="work">WORK</a></li>
         <li><a href="pictures.html" class="nav-link" data-page="pictures">PICTURES</a></li>
@@ -21,7 +21,7 @@
     </nav>
 
     <!-- Burger menu / mobile -->
-    <div id="burger" class="burger">
+    <div class="burger" id="burger">
       <div></div>
       <div></div>
       <div></div>
@@ -38,8 +38,8 @@
 
   <script src="projet.js"></script>
   <script>
-    // Génération des projets
     const grid = document.getElementById("projects-grid");
+
     projects.forEach(p => {
       const div = document.createElement("div");
       div.className = "project";
@@ -59,15 +59,8 @@
     document.querySelectorAll(".nav-link").forEach(link => {
       link.style.opacity = (link.dataset.page === currentPage) ? "1" : "0.5";
     });
-
-    // Burger menu
-    const burger = document.getElementById('burger');
-    const nav = document.getElementById('nav-links');
-
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('toggle'); // animation burger
-      nav.classList.toggle('active');    // affiche/masque menu mobile
-    });
   </script>
+
+  <script src="menu.js"></script>
 </body>
 </html>
