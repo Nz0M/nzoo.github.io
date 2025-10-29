@@ -370,3 +370,9 @@ footer {
     opacity: 1;
   }
 }
+/* Cache le menu horizontal (WORK / PICTURES) derrière le burger sur mobile */
+@media (max-width: 500px) {
+  .navbar-left {
+    display: none;
+  }
+}
