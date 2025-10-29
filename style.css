@@ -385,3 +385,22 @@ footer {
     display: none;
   }
 }
+/* === Lien du titre MARTIN ENZO === */
+.header-center {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.header-center:hover {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.05);
+}
