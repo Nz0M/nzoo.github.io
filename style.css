@@ -26,6 +26,18 @@ header {
   border-bottom: 1px solid #222; /* <-trait au niveau du menu */
 }
 
+.header-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  pointer-events: none; /* pour que ça ne bloque pas les clics sur le menu */
+}
+
 .menu {
   list-style: none;
   display: flex;
