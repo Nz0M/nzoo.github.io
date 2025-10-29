@@ -13,16 +13,19 @@ body {
   color: #fff;
 }
 
-/* === HEADER / MENU === */
+/* === HEADER / MENU FIXE === */
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: #0f0f0f;
-  padding: 40px 50px 20px 50px; /* espace supérieur augmenté */
+  padding: 40px 50px 20px 50px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid rgba(255,255,255,0.2);
-  z-index: 100;
+  z-index: 1000;
 }
 
 /* Texte centré "MARTIN ENZO" */
@@ -37,12 +40,12 @@ header {
   letter-spacing: 3px;
 }
 
-/* --- MENU À GAUCHE --- */
+/* --- MENU À GAUCHE FIXE --- */
 .navbar-left {
-  position: fixed;
+  position: absolute;
   top: 25px;
   left: 25px;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .navbar-left ul {
@@ -70,9 +73,9 @@ header {
   opacity: 1;
 }
 
-/* === ESPACEMENT PAGE PRINCIPALE === */
+/* === ESPACEMENT SOUS LE HEADER FIXE === */
 main {
-  margin-top: 100px;
+  margin-top: 130px;
 }
 
 /* === GRILLE DE PROJETS === */
@@ -145,15 +148,15 @@ main {
 }
 
 .project-page h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   margin-bottom: 8px;
 }
 
 .project-page .category {
-  display: block;
-  font-size: 1.4rem;
+  font-size: 1.4rem; /* plus grand pour Electro / Cadreur */
   color: #ccc;
-  margin-bottom: 35px; /* espace entre la catégorie et la vidéo */
+  margin-bottom: 40px; /* espace plus grand avant la vidéo */
+  display: block;
 }
 
 .project-page iframe {
@@ -161,7 +164,7 @@ main {
   height: 500px;
   border: none;
   border-radius: 10px;
-  margin-bottom: 40px; /* espace avant les suggestions */
+  margin-bottom: 30px;
 }
 
 /* === SUGGESTIONS === */
@@ -249,19 +252,11 @@ footer {
 
   .header-center {
     font-size: 22px;
+    top: 18px;
   }
 
   main {
-    margin-top: 80px;
-  }
-
-  .project-page h1 {
-    font-size: 1.8rem;
-  }
-
-  .project-page .category {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+    margin-top: 110px;
   }
 
   .project-page iframe {
@@ -277,7 +272,7 @@ footer {
 
   .navbar-left ul {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .navbar-left a {
@@ -286,27 +281,23 @@ footer {
 
   .header-center {
     font-size: 18px;
-    top: 10px;
+    top: 8px;
   }
 
   main {
-    margin-top: 70px;
+    margin-top: 90px;
   }
 
   .project {
     height: 70vw;
   }
 
-  .project-page h1 {
-    font-size: 1.5rem;
+  .project-page iframe {
+    height: 60vw;
   }
 
   .project-page .category {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-
-  .project-page iframe {
-    height: 60vw;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
   }
 }
