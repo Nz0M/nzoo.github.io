@@ -25,64 +25,31 @@ const projects = [
   {id:23, title:"CMARG x Fresh", category:"Cadreur", video:"https://www.youtube.com/embed/9UiH4IZQvQg", image:"images/projet23.jpg"},
 ];
 
-// === Récupération de l'ID du projet dans l'URL (si présent) ===
+// === Projet spécifique ===
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = parseInt(urlParams.get('id'));
+const project = projects.find(p => p.id === projectId);
+const container = document.querySelector(".project-page");
 
-// === Si on est sur projet.html avec un ID ===
-if (projectId) {
-  const project = projects.find(p => p.id === projectId);
-  const projectPage = document.querySelector(".project-page");
-
-  if (project && projectPage) {
-    projectPage.innerHTML = `
+if(project && container){
+  container.innerHTML = `
+    <section class="project-details">
       <h1>${project.title}</h1>
       <span class="category">${project.category}</span>
       <iframe src="${project.video}" allowfullscreen></iframe>
-      <div class="suggestions-section">
-        <h2>YOU MAY ALSO LIKE</h2>
-        <div class="suggestions"></div>
-      </div>
-    `;
-
-    const suggestionsContainer = projectPage.querySelector(".suggestions");
-    const otherProjects = projects.filter(p => p.id !== projectId);
-    const shuffled = otherProjects.sort(() => 0.5 - Math.random());
-    const suggestions = shuffled.slice(0, 2);
-
-    suggestions.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "suggestion";
-      div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-      div.innerHTML = `
-        <img src="${p.image}" alt="${p.title}">
-        <div class="overlay">
-          <h3>${p.title}</h3>
-          <p>${p.category}</p>
+    </section>
+    <section class="suggestions-grid">
+      ${projects.filter(p => p.id !== projectId).slice(0,4).map(p => `
+        <div class="project-item" onclick="window.location.href='projet.html?id=${p.id}'">
+          <img src="${p.image}" alt="${p.title}">
+          <div class="overlay">
+            <h3>${p.title}</h3>
+            <p>${p.category}</p>
+          </div>
         </div>
-      `;
-      suggestionsContainer.appendChild(div);
-    });
-
-  } else if (projectPage) {
-    projectPage.innerHTML = "<p>Projet non trouvé.</p>";
-  }
-}
-
-// === Sinon on est sur index.html, on affiche tous les projets ===
-const workGrid = document.getElementById("work-grid");
-if (workGrid) {
-  projects.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "project-item";
-    div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-    div.innerHTML = `
-      <img src="${p.image}" alt="${p.title}">
-      <div class="overlay">
-        <h3>${p.title}</h3>
-        <p>${p.category}</p>
-      </div>
-    `;
-    workGrid.appendChild(div);
-  });
+      `).join('')}
+    </section>
+  `;
+} else if(container) {
+  container.innerHTML = "<p>Projet non trouvé.</p>";
 }
