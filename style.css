@@ -20,7 +20,7 @@ header {
   left: 0;
   width: 100%;
   background: #0f0f0f;
-  padding: 30px 50px 20px 50px;
+  padding: 40px 50px 20px 50px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -34,9 +34,9 @@ header {
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 28px;
+  font-size: 1.8vw; /* proportionnel à l'écran */
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 0.15vw;
   text-decoration: none;
   transition: transform 0.3s ease;
 }
@@ -56,14 +56,14 @@ header {
 .navbar-left ul {
   list-style: none;
   display: flex;
-  gap: 35px;
+  gap: 2vw;
 }
 
 .navbar-left a {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2vw;
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
@@ -78,17 +78,16 @@ header {
 
 /* === ESPACEMENT SOUS LE HEADER FIXE === */
 main {
-  margin-top: 130px;
-  width: 100%;
+  margin-top: 10vw; /* proportionnel au header */
 }
 
 /* === GRILLE DE PROJETS === */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 1vw;
   width: 100%;
-  padding: 15px;
+  padding: 1vw;
 }
 
 .project {
@@ -96,7 +95,7 @@ main {
   overflow: hidden;
   cursor: pointer;
   width: 100%;
-  height: 300px;
+  height: 50vw; /* proportionnel à la largeur */
   max-height: 500px;
 }
 
@@ -134,49 +133,48 @@ main {
 }
 
 .overlay h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
+  font-size: 1.2vw;
+  margin-bottom: 0.5vw;
 }
 
 .overlay p {
-  font-size: 15px;
+  font-size: 0.9vw;
   color: #ccc;
 }
 
 /* === PAGE PROJET === */
 .project-page {
   max-width: 1200px;
-  margin: 80px auto;
+  margin: 5vw auto;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 2vw;
 }
 
 .project-page h1 {
-  font-size: 2.2rem;
-  margin-bottom: 8px;
+  font-size: 2vw;
+  margin-bottom: 1vw;
 }
 
 .project-page .category {
-  font-size: 1.4rem;
+  font-size: 1vw;
   color: #ccc;
-  margin-bottom: 40px;
+  margin-bottom: 3vw;
   display: block;
 }
 
 .project-page iframe {
   width: 100%;
-  max-width: 100%;
-  height: 500px;
+  height: 50vw; /* proportionnel à la largeur */
   border: none;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 3vw;
 }
 
 /* === SUGGESTIONS === */
 .suggestions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 1.5vw;
   width: 100%;
 }
 
@@ -223,9 +221,9 @@ main {
 /* === FOOTER === */
 footer {
   text-align: center;
-  padding: 30px 0;
+  padding: 3vw 0;
   color: #666;
-  font-size: 14px;
+  font-size: 0.9vw;
 }
 
 /* === RESPONSIVE === */
@@ -234,29 +232,25 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .navbar-left ul {
-    gap: 20px;
-  }
-
   .navbar-left a {
-    font-size: 1rem;
+    font-size: 2vw;
   }
 
   .header-center {
-    font-size: 22px;
-    top: 18px;
+    font-size: 4vw;
+    top: 4vw;
   }
 
   main {
-    margin-top: 110px;
+    margin-top: 12vw;
   }
 
   .project {
-    height: 250px;
+    height: 60vw;
   }
 
   .project-page iframe {
-    height: 300px;
+    height: 60vw;
   }
 }
 
@@ -266,23 +260,22 @@ footer {
   }
 
   main {
-    margin-top: 90px;
+    margin-top: 15vw;
   }
 
   .project {
-    height: 200px;
+    height: 80vw;
   }
 
   .project-page iframe {
-    height: 250px;
+    height: 80vw;
   }
 
   .project-page .category {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 3.5vw;
+    margin-bottom: 6vw;
   }
 
-  /* Burger menu mobile */
   .burger {
     display: flex;
     cursor: pointer;
@@ -315,7 +308,6 @@ footer {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* Menu fullscreen centré */
   #nav-links {
     position: fixed;
     top: 0;
@@ -339,14 +331,14 @@ footer {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 10vw;
     padding: 0;
     margin: 0;
     align-items: center;
   }
 
   #nav-links a {
-    font-size: 2rem;
+    font-size: 6vw;
     font-weight: 600;
     color: white;
     text-decoration: none;
