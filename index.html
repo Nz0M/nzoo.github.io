@@ -1,68 +1,62 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-page="work">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work – Enzo Martin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <!-- Menu horizontal pour desktop -->
-    <nav class="navbar-left">
-      <ul>
-        <li><a href="index.html" class="active">WORK</a></li>
-        <li><a href="pictures.html">PICTURES</a></li>
-      </ul>
-    </nav>
+<body data-page="work">
 
-    <!-- Texte central cliquable vers l'accueil -->
-    <a href="index.html" class="header-center">MARTIN ENZO</a>
+<header>
+  <div class="burger" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-    <!-- Burger menu pour mobile -->
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+  <nav class="navbar-left" id="nav-links">
+    <ul>
+      <li><a href="index.html" data-page="work" class="active">WORK</a></li>
+      <li><a href="pictures.html" data-page="pictures">PICTURES</a></li>
+    </ul>
+  </nav>
 
-    <!-- Menu mobile fullscreen -->
-    <nav id="nav-links">
-      <ul>
-        <li><a href="index.html">WORK</a></li>
-        <li><a href="pictures.html">PICTURES</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="header-center" onclick="window.location.href='index.html'">MARTIN ENZO</div>
+</header>
 
-  <main>
-    <section class="grid" id="work-grid">
-      <!-- Les projets seront injectés par JS -->
-    </section>
-  </main>
+<main>
+  <section class="grid" id="work-grid">
+    <!-- Les projets seront injectés par JS -->
+  </section>
+</main>
 
-  <footer>
-    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
-  </footer>
+<footer>
+  <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+</footer>
 
-  <script src="projet.js"></script>
-  <script src="menu.js"></script>
-  
-  <script>
-  // Vérification si la section work-grid existe
+<script src="projet.js"></script>
+<script src="menu.js"></script>
+<script>
   const workGrid = document.getElementById("work-grid");
-  if (workGrid) {
-    console.log("✅ work-grid trouvé !");
-    console.log("Nombre de projets dans le tableau :", projects.length);
-  } else {
-    console.error("❌ work-grid NON trouvé ! Vérifie ton HTML.");
-  }
 
-  // Vérification rapide si projet.js peut injecter
-  if (typeof projects !== "undefined") {
-    console.log("✅ Le tableau projects est chargé !");
+  if (workGrid && typeof projects !== "undefined") {
+    projects.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "project-card";
+      div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.title}">
+        <div class="overlay">
+          <h3>${p.title}</h3>
+          <p>${p.category}</p>
+        </div>
+      `;
+      workGrid.appendChild(div);
+    });
   } else {
-    console.error("❌ Le tableau projects n'est pas défini !");
+    console.error("❌ Impossible de charger les projets.");
   }
 </script>
 

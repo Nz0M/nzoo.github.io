@@ -1,69 +1,85 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-page="work">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projet – Enzo Martin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <!-- Menu horizontal pour desktop -->
-    <nav class="navbar-left">
-      <ul>
-        <li><a href="index.html">WORK</a></li>
-        <li><a href="pictures.html">PICTURES</a></li>
-      </ul>
-    </nav>
+<body data-page="work">
 
-    <!-- Texte central cliquable vers l'accueil -->
-    <a href="index.html" class="header-center">MARTIN ENZO</a>
+<header>
+  <div class="burger" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-    <!-- Burger menu pour mobile -->
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </header>
+  <nav class="navbar-left" id="nav-links">
+    <ul>
+      <li><a href="index.html" data-page="work">WORK</a></li>
+      <li><a href="pictures.html" data-page="pictures">PICTURES</a></li>
+    </ul>
+  </nav>
 
-  <main>
-    <div class="project-page"></div>
-  </main>
+  <div class="header-center" onclick="window.location.href='index.html'">MARTIN ENZO</div>
+</header>
 
-  <footer>
-    <p>© 2025 Enzo Martin – Tous droits réservés.</p>
-  </footer>
+<main>
+  <!-- Section où le projet sera injecté -->
+  <section class="project-page"></section>
+</main>
 
-  <script src="projet.js"></script>
-  <script>
-    // Récupération du projet via l'ID dans l'URL
-    const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get("id"));
-    const project = projects.find(p => p.id === id);
-    const container = document.querySelector(".project-page");
+<footer>
+  <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+</footer>
 
-    if(project){
-      container.innerHTML = `
-        <h1>${project.title}</h1>
-        <p class="category">${project.category}</p>
-        <iframe src="${project.youtube}" allowfullscreen></iframe>
-        <div class="suggestions">
-          ${projects.filter(p => p.id !== id).slice(0,4).map(p => `
-            <div class="suggestion" onclick="window.location.href='projet.html?id=${p.id}'">
-              <img src="${p.image}" alt="${p.title}">
-              <div class="overlay">
-                <h3>${p.title}</h3>
-                <p>${p.category}</p>
-              </div>
-            </div>
-          `).join('')}
+<script src="projet.js"></script>
+<script src="menu.js"></script>
+<script>
+  // Récupération de l'ID depuis l'URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const projectId = parseInt(urlParams.get('id'));
+  const project = projects.find(p => p.id === projectId);
+  const container = document.querySelector(".project-page");
+
+  if (project) {
+    container.innerHTML = `
+      <h1>${project.title}</h1>
+      <span class="category">${project.category}</span>
+      <iframe src="${project.video}" allowfullscreen></iframe>
+
+      <div class="suggestions-section">
+        <h2>YOU MAY ALSO LIKE</h2>
+        <div class="suggestions"></div>
+      </div>
+    `;
+
+    // Génération des suggestions (2 aléatoires)
+    const suggestionsContainer = container.querySelector(".suggestions");
+    const otherProjects = projects.filter(p => p.id !== projectId);
+    const shuffled = otherProjects.sort(() => 0.5 - Math.random());
+    const suggestions = shuffled.slice(0, 2);
+
+    suggestions.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "suggestion";
+      div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.title}">
+        <div class="overlay">
+          <h3>${p.title}</h3>
+          <p>${p.category}</p>
         </div>
       `;
-    } else {
-      container.innerHTML = `<p>Projet introuvable.</p>`;
-    }
-  </script>
-  <script src="menu.js"></script>
+      suggestionsContainer.appendChild(div);
+    });
+
+  } else {
+    container.innerHTML = "<p>Projet non trouvé.</p>";
+  }
+</script>
+
 </body>
 </html>

@@ -25,35 +25,56 @@ const projects = [
   {id:23, title:"CMARG x Fresh", category:"Cadreur", video:"https://www.youtube.com/embed/9UiH4IZQvQg", image:"images/projet23.jpg"},
 ];
 
-// === Récupération de l'ID du projet dans l'URL ===
+// === Récupération de l'ID du projet dans l'URL (si présent) ===
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = parseInt(urlParams.get('id'));
-const project = projects.find(p => p.id === projectId);
 
-// === Conteneur pour afficher le projet ===
-const projectContainer = document.querySelector(".project-page");
+// === Si on est sur projet.html avec un ID ===
+if (projectId) {
+  const project = projects.find(p => p.id === projectId);
+  const projectPage = document.querySelector(".project-page");
 
-if (project && projectContainer) {
-  // === Contenu principal ===
-  projectContainer.innerHTML = `
-    <h1>${project.title}</h1>
-    <span class="category">${project.category}</span>
-    <iframe src="${project.video}" allowfullscreen></iframe>
-    <div class="suggestions-section">
-      <h2>YOU MAY ALSO LIKE</h2>
-      <div class="suggestions"></div>
-    </div>
-  `;
+  if (project && projectPage) {
+    projectPage.innerHTML = `
+      <h1>${project.title}</h1>
+      <span class="category">${project.category}</span>
+      <iframe src="${project.video}" allowfullscreen></iframe>
+      <div class="suggestions-section">
+        <h2>YOU MAY ALSO LIKE</h2>
+        <div class="suggestions"></div>
+      </div>
+    `;
 
-  // === Génération des suggestions (2 aléatoires) ===
-  const suggestionsContainer = projectContainer.querySelector(".suggestions");
-  const otherProjects = projects.filter(p => p.id !== projectId);
-  const shuffled = otherProjects.sort(() => 0.5 - Math.random());
-  const suggestions = shuffled.slice(0, 2);
+    const suggestionsContainer = projectPage.querySelector(".suggestions");
+    const otherProjects = projects.filter(p => p.id !== projectId);
+    const shuffled = otherProjects.sort(() => 0.5 - Math.random());
+    const suggestions = shuffled.slice(0, 2);
 
-  suggestions.forEach(p => {
+    suggestions.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "suggestion";
+      div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.title}">
+        <div class="overlay">
+          <h3>${p.title}</h3>
+          <p>${p.category}</p>
+        </div>
+      `;
+      suggestionsContainer.appendChild(div);
+    });
+
+  } else if (projectPage) {
+    projectPage.innerHTML = "<p>Projet non trouvé.</p>";
+  }
+}
+
+// === Sinon on est sur index.html, on affiche tous les projets ===
+const workGrid = document.getElementById("work-grid");
+if (workGrid) {
+  projects.forEach(p => {
     const div = document.createElement("div");
-    div.className = "suggestion";
+    div.className = "project-item";
     div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
     div.innerHTML = `
       <img src="${p.image}" alt="${p.title}">
@@ -62,9 +83,6 @@ if (project && projectContainer) {
         <p>${p.category}</p>
       </div>
     `;
-    suggestionsContainer.appendChild(div);
+    workGrid.appendChild(div);
   });
-
-} else if (projectContainer) {
-  projectContainer.innerHTML = "<p>Projet non trouvé.</p>";
 }
