@@ -11,7 +11,6 @@
 body {
   background-color: #0f0f0f;
   color: #fff;
-  font-size: 1.2vw; /* zoom global +20% */
 }
 
 /* === HEADER / MENU FIXE === */
@@ -21,7 +20,7 @@ header {
   left: 0;
   width: 100%;
   background: #0f0f0f;
-  padding: 48px 60px 24px 60px; /* +20% */
+  padding: 40px 50px 20px 50px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,18 +28,16 @@ header {
   z-index: 1000;
 }
 
-/* Texte centré "MARTIN ENZO" cliquable */
 .header-center {
   position: absolute;
-  top: 24px; /* +20% */
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 33.6px; /* +20% */
+  font-size: 1.8vw; /* proportionnel à l'écran */
   font-weight: 600;
-  letter-spacing: 3.6px; /* +20% */
+  letter-spacing: 0.15vw;
   text-decoration: none;
-  opacity: 1;
   transition: transform 0.3s ease;
 }
 
@@ -51,24 +48,22 @@ header {
 /* --- MENU À GAUCHE FIXE --- */
 .navbar-left {
   position: absolute;
-  top: 30px; /* +20% */
-  left: 30px; /* +20% */
+  top: 25px;
+  left: 25px;
   z-index: 1100;
 }
 
 .navbar-left ul {
   list-style: none;
   display: flex;
-  gap: 42px; /* +20% */
-  padding: 0;
-  margin: 0;
+  gap: 2vw;
 }
 
 .navbar-left a {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  font-size: 1.56rem; /* +20% */
+  font-size: 1.2vw;
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
@@ -83,16 +78,16 @@ header {
 
 /* === ESPACEMENT SOUS LE HEADER FIXE === */
 main {
-  margin-top: 156px; /* +20% */
+  margin-top: 10vw; /* proportionnel au header */
 }
 
 /* === GRILLE DE PROJETS === */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px; /* +20% */
+  gap: 1vw;
   width: 100%;
-  padding: 18px; /* +20% */
+  padding: 1vw;
 }
 
 .project {
@@ -100,8 +95,8 @@ main {
   overflow: hidden;
   cursor: pointer;
   width: 100%;
-  height: 60vw; /* +20% */
-  max-height: 600px; /* +20% */
+  height: 50vw; /* proportionnel à la largeur */
+  max-height: 500px;
 }
 
 .project img {
@@ -138,48 +133,48 @@ main {
 }
 
 .overlay h3 {
-  font-size: 26.4px; /* +20% */
-  margin-bottom: 9.6px; /* +20% */
+  font-size: 1.2vw;
+  margin-bottom: 0.5vw;
 }
 
 .overlay p {
-  font-size: 18px; /* +20% */
+  font-size: 0.9vw;
   color: #ccc;
 }
 
 /* === PAGE PROJET === */
 .project-page {
-  max-width: 1440px; /* +20% */
-  margin: 96px auto; /* +20% */
+  max-width: 1200px;
+  margin: 5vw auto;
   text-align: center;
-  padding: 0 24px; /* +20% */
+  padding: 0 2vw;
 }
 
 .project-page h1 {
-  font-size: 2.64rem; /* +20% */
-  margin-bottom: 9.6px; /* +20% */
+  font-size: 2vw;
+  margin-bottom: 1vw;
 }
 
 .project-page .category {
-  font-size: 1.68rem; /* +20% */
+  font-size: 1vw;
   color: #ccc;
-  margin-bottom: 48px; /* +20% */
+  margin-bottom: 3vw;
   display: block;
 }
 
 .project-page iframe {
   width: 100%;
-  height: 600px; /* +20% */
+  height: 50vw; /* proportionnel à la largeur */
   border: none;
   border-radius: 10px;
-  margin-bottom: 36px; /* +20% */
+  margin-bottom: 3vw;
 }
 
 /* === SUGGESTIONS === */
 .suggestions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px; /* +20% */
+  gap: 1.5vw;
   width: 100%;
 }
 
@@ -187,7 +182,7 @@ main {
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 7.2px; /* +20% */
+  border-radius: 6px;
 }
 
 .suggestion img {
@@ -226,9 +221,9 @@ main {
 /* === FOOTER === */
 footer {
   text-align: center;
-  padding: 36px 0; /* +20% */
+  padding: 3vw 0;
   color: #666;
-  font-size: 16.8px; /* +20% */
+  font-size: 0.9vw;
 }
 
 /* === RESPONSIVE === */
@@ -237,25 +232,25 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .navbar-left ul {
-    gap: 24px; /* +20% */
-  }
-
   .navbar-left a {
-    font-size: 1.2rem; /* +20% */
+    font-size: 2vw;
   }
 
   .header-center {
-    font-size: 26.4px; /* +20% */
-    top: 21.6px; /* +20% */
+    font-size: 4vw;
+    top: 4vw;
   }
 
   main {
-    margin-top: 132px; /* +20% */
+    margin-top: 12vw;
+  }
+
+  .project {
+    height: 60vw;
   }
 
   .project-page iframe {
-    height: 66vw; /* +20% */
+    height: 60vw;
   }
 }
 
@@ -265,45 +260,44 @@ footer {
   }
 
   main {
-    margin-top: 108px; /* +20% */
+    margin-top: 15vw;
   }
 
   .project {
-    height: 84vw; /* +20% */
+    height: 80vw;
   }
 
   .project-page iframe {
-    height: 72vw; /* +20% */
+    height: 80vw;
   }
 
   .project-page .category {
-    font-size: 1.44rem; /* +20% */
-    margin-bottom: 36px; /* +20% */
+    font-size: 3.5vw;
+    margin-bottom: 6vw;
   }
 
-  /* Burger menu mobile */
   .burger {
     display: flex;
     cursor: pointer;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px; /* +20% */
-    height: 24px; /* +20% */
+    width: 25px;
+    height: 20px;
     position: fixed;
-    top: 30px; /* +20% */
-    left: 30px; /* +20% */
+    top: 25px;
+    left: 25px;
     z-index: 1001;
   }
 
   .burger div {
     width: 100%;
-    height: 3.6px; /* +20% */
+    height: 3px;
     background-color: white;
     transition: all 0.3s ease;
   }
 
   .burger.toggle div:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px); /* +20% */
+    transform: rotate(45deg) translate(5px, 5px);
   }
 
   .burger.toggle div:nth-child(2) {
@@ -311,10 +305,9 @@ footer {
   }
 
   .burger.toggle div:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px); /* +20% */
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* Menu fullscreen centré */
   #nav-links {
     position: fixed;
     top: 0;
@@ -338,14 +331,14 @@ footer {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 48px; /* +20% */
+    gap: 10vw;
     padding: 0;
     margin: 0;
     align-items: center;
   }
 
   #nav-links a {
-    font-size: 2.4rem; /* +20% */
+    font-size: 6vw;
     font-weight: 600;
     color: white;
     text-decoration: none;
