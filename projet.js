@@ -30,9 +30,11 @@ const urlParams = new URLSearchParams(window.location.search);
 const projectId = parseInt(urlParams.get('id'));
 const project = projects.find(p => p.id === projectId);
 
-if (project) {
+// === Conteneur pour afficher le projet ===
+const projectContainer = document.querySelector(".project-page");
+
+if (project && projectContainer) {
   // === Contenu principal ===
-  const projectContainer = document.querySelector(".project-page");
   projectContainer.innerHTML = `
     <h1>${project.title}</h1>
     <span class="category">${project.category}</span>
@@ -44,7 +46,7 @@ if (project) {
   `;
 
   // === Génération des suggestions (2 aléatoires) ===
-  const suggestionsContainer = document.querySelector(".suggestions");
+  const suggestionsContainer = projectContainer.querySelector(".suggestions");
   const otherProjects = projects.filter(p => p.id !== projectId);
   const shuffled = otherProjects.sort(() => 0.5 - Math.random());
   const suggestions = shuffled.slice(0, 2);
@@ -63,6 +65,6 @@ if (project) {
     suggestionsContainer.appendChild(div);
   });
 
-} else {
-  document.querySelector(".project-page").innerHTML = "<p>Projet non trouvé.</p>";
+} else if (projectContainer) {
+  projectContainer.innerHTML = "<p>Projet non trouvé.</p>";
 }
