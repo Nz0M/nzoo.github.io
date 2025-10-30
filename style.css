@@ -28,16 +28,18 @@ header {
   z-index: 1000;
 }
 
+/* Texte centré "MARTIN ENZO" cliquable */
 .header-center {
   position: absolute;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 1.8vw; /* proportionnel à l'écran */
+  font-size: 28px;
   font-weight: 600;
-  letter-spacing: 0.15vw;
+  letter-spacing: 3px;
   text-decoration: none;
+  opacity: 1;
   transition: transform 0.3s ease;
 }
 
@@ -56,14 +58,16 @@ header {
 .navbar-left ul {
   list-style: none;
   display: flex;
-  gap: 2vw;
+  gap: 35px;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar-left a {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  font-size: 1.2vw;
+  font-size: 1.3rem;
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
@@ -78,16 +82,16 @@ header {
 
 /* === ESPACEMENT SOUS LE HEADER FIXE === */
 main {
-  margin-top: 10vw; /* proportionnel au header */
+  margin-top: 130px;
 }
 
 /* === GRILLE DE PROJETS === */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1vw;
+  gap: 15px;
   width: 100%;
-  padding: 1vw;
+  padding: 15px;
 }
 
 .project {
@@ -95,7 +99,7 @@ main {
   overflow: hidden;
   cursor: pointer;
   width: 100%;
-  height: 50vw; /* proportionnel à la largeur */
+  height: 50vw;
   max-height: 500px;
 }
 
@@ -133,48 +137,48 @@ main {
 }
 
 .overlay h3 {
-  font-size: 1.2vw;
-  margin-bottom: 0.5vw;
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
 .overlay p {
-  font-size: 0.9vw;
+  font-size: 15px;
   color: #ccc;
 }
 
 /* === PAGE PROJET === */
 .project-page {
   max-width: 1200px;
-  margin: 5vw auto;
+  margin: 80px auto;
   text-align: center;
-  padding: 0 2vw;
+  padding: 0 20px;
 }
 
 .project-page h1 {
-  font-size: 2vw;
-  margin-bottom: 1vw;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
 }
 
 .project-page .category {
-  font-size: 1vw;
+  font-size: 1.4rem;
   color: #ccc;
-  margin-bottom: 3vw;
+  margin-bottom: 40px;
   display: block;
 }
 
 .project-page iframe {
   width: 100%;
-  height: 50vw; /* proportionnel à la largeur */
+  height: 500px;
   border: none;
   border-radius: 10px;
-  margin-bottom: 3vw;
+  margin-bottom: 30px;
 }
 
 /* === SUGGESTIONS === */
 .suggestions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5vw;
+  gap: 20px;
   width: 100%;
 }
 
@@ -221,9 +225,9 @@ main {
 /* === FOOTER === */
 footer {
   text-align: center;
-  padding: 3vw 0;
+  padding: 30px 0;
   color: #666;
-  font-size: 0.9vw;
+  font-size: 14px;
 }
 
 /* === RESPONSIVE === */
@@ -232,25 +236,25 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .navbar-left ul {
+    gap: 20px;
+  }
+
   .navbar-left a {
-    font-size: 2vw;
+    font-size: 1rem;
   }
 
   .header-center {
-    font-size: 4vw;
-    top: 4vw;
+    font-size: 22px;
+    top: 18px;
   }
 
   main {
-    margin-top: 12vw;
-  }
-
-  .project {
-    height: 60vw;
+    margin-top: 110px;
   }
 
   .project-page iframe {
-    height: 60vw;
+    height: 55vw;
   }
 }
 
@@ -260,22 +264,23 @@ footer {
   }
 
   main {
-    margin-top: 15vw;
+    margin-top: 90px;
   }
 
   .project {
-    height: 80vw;
+    height: 70vw;
   }
 
   .project-page iframe {
-    height: 80vw;
+    height: 60vw;
   }
 
   .project-page .category {
-    font-size: 3.5vw;
-    margin-bottom: 6vw;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
   }
 
+  /* Burger menu mobile */
   .burger {
     display: flex;
     cursor: pointer;
@@ -308,6 +313,7 @@ footer {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
+  /* Menu fullscreen centré */
   #nav-links {
     position: fixed;
     top: 0;
@@ -331,14 +337,14 @@ footer {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10vw;
+    gap: 40px;
     padding: 0;
     margin: 0;
     align-items: center;
   }
 
   #nav-links a {
-    font-size: 6vw;
+    font-size: 2rem;
     font-weight: 600;
     color: white;
     text-decoration: none;
