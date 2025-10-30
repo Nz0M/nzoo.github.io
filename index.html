@@ -47,5 +47,24 @@
 
   <script src="projet.js"></script>
   <script src="menu.js"></script>
+  
+  <script>
+  // Vérification si la section work-grid existe
+  const workGrid = document.getElementById("work-grid");
+  if (workGrid) {
+    console.log("✅ work-grid trouvé !");
+    console.log("Nombre de projets dans le tableau :", projects.length);
+  } else {
+    console.error("❌ work-grid NON trouvé ! Vérifie ton HTML.");
+  }
+
+  // Vérification rapide si projet.js peut injecter
+  if (typeof projects !== "undefined") {
+    console.log("✅ Le tableau projects est chargé !");
+  } else {
+    console.error("❌ Le tableau projects n'est pas défini !");
+  }
+</script>
+
 </body>
 </html>
