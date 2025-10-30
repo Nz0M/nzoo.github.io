@@ -13,7 +13,7 @@ body {
   color: #fff;
 }
 
-/* === HEADER FIXE === */
+/* === HEADER / MENU FIXE === */
 header {
   position: fixed;
   top: 0;
@@ -22,12 +22,13 @@ header {
   background: #0f0f0f;
   padding: 40px 50px 20px 50px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid rgba(255,255,255,0.2);
   z-index: 1000;
 }
 
-/* === TEXTE CENTRÉ "MARTIN ENZO" === */
+/* Texte centré "MARTIN ENZO" cliquable */
 .header-center {
   position: absolute;
   top: 20px;
@@ -46,7 +47,7 @@ header {
   transform: translateX(-50%) scale(1.05);
 }
 
-/* === MENU HORIZONTAL DESKTOP === */
+/* --- MENU À GAUCHE FIXE --- */
 .navbar-left {
   position: absolute;
   top: 25px;
@@ -58,6 +59,8 @@ header {
   list-style: none;
   display: flex;
   gap: 35px;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar-left a {
@@ -77,12 +80,12 @@ header {
   opacity: 1;
 }
 
-/* === MAIN === */
+/* === ESPACEMENT SOUS LE HEADER FIXE === */
 main {
   margin-top: 130px;
 }
 
-/* === GRILLE DE PROJETS / PICTURES === */
+/* === GRILLE DE PROJETS === */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -111,14 +114,14 @@ main {
   transform: scale(1.1);
 }
 
-/* === SURVOL PROJETS === */
+/* --- SURVOL DES PROJETS --- */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -172,19 +175,6 @@ main {
 }
 
 /* === SUGGESTIONS === */
-.suggestions-section {
-  width: 100%;
-  margin-top: 60px;
-}
-
-.suggestions-section h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 25px;
-  text-align: left;
-  margin-left: 20px;
-}
-
 .suggestions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -273,11 +263,6 @@ footer {
     display: none;
   }
 
-  .header-center {
-    font-size: 18px;
-    top: 8px;
-  }
-
   main {
     margin-top: 90px;
   }
@@ -295,7 +280,7 @@ footer {
     margin-bottom: 30px;
   }
 
-  /* === BURGER === */
+  /* Burger menu mobile */
   .burger {
     display: flex;
     cursor: pointer;
@@ -328,14 +313,14 @@ footer {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* === MENU BURGER FULLSCREEN === */
+  /* Menu fullscreen centré */
   #nav-links {
     position: fixed;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: rgba(15,15,15,0.95);
+    background-color: rgba(15, 15, 15, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
