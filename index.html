@@ -18,7 +18,7 @@
 
   <nav class="navbar-left" id="nav-links">
     <ul>
-      <li><a href="index.html" data-page="work" class="active">WORK</a></li>
+      <li><a href="index.html" class="active" data-page="work">WORK</a></li>
       <li><a href="pictures.html" data-page="pictures">PICTURES</a></li>
     </ul>
   </nav>
@@ -42,21 +42,16 @@
   const workGrid = document.getElementById("work-grid");
 
   if (workGrid && typeof projects !== "undefined") {
-    projects.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "project-card";
-      div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-      div.innerHTML = `
+    // Injection de tous les projets dans la grille
+    workGrid.innerHTML = projects.map(p => `
+      <div class="project" onclick="window.location.href='projet.html?id=${p.id}'">
         <img src="${p.image}" alt="${p.title}">
         <div class="overlay">
           <h3>${p.title}</h3>
           <p>${p.category}</p>
         </div>
-      `;
-      workGrid.appendChild(div);
-    });
-  } else {
-    console.error("❌ Impossible de charger les projets.");
+      </div>
+    `).join('');
   }
 </script>
 

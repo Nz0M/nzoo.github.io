@@ -22,25 +22,23 @@ const projects = [
   {id:20, title:"Oklou - Harvest Sky", category:"Cadreur", video:"https://www.youtube.com/embed/B6MuFJ7Oepc", image:"images/projet20.jpg"},
   {id:21, title:"Oklou - Blade Bird", category:"Cadreur", video:"https://www.youtube.com/embed/JdiinD0PJWU", image:"images/projet21.jpg"},
   {id:22, title:"Oklou - Plague Dogs", category:"Cadreur", video:"https://www.youtube.com/embed/zHuJfx8lwZA", image:"images/projet22.jpg"},
-  {id:23, title:"CMARG x Fresh", category:"Cadreur", video:"https://www.youtube.com/embed/9UiH4IZQvQg", image:"images/projet23.jpg"},
+  {id:23, title:"CMARG x Fresh", category:"Cadreur", video:"https://www.youtube.com/embed/9UiH4IZQvQg", image:"images/projet23.jpg"}
 ];
 
-// === Projet spécifique ===
+// === Récupération de l'ID du projet dans l'URL ===
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = parseInt(urlParams.get('id'));
 const project = projects.find(p => p.id === projectId);
 const container = document.querySelector(".project-page");
 
-if(project && container){
+if (project) {
   container.innerHTML = `
-    <section class="project-details">
-      <h1>${project.title}</h1>
-      <span class="category">${project.category}</span>
-      <iframe src="${project.video}" allowfullscreen></iframe>
-    </section>
-    <section class="suggestions-grid">
+    <h1>${project.title}</h1>
+    <span class="category">${project.category}</span>
+    <iframe src="${project.video}" allowfullscreen></iframe>
+    <div class="suggestions">
       ${projects.filter(p => p.id !== projectId).slice(0,4).map(p => `
-        <div class="project-item" onclick="window.location.href='projet.html?id=${p.id}'">
+        <div class="suggestion" onclick="window.location.href='projet.html?id=${p.id}'">
           <img src="${p.image}" alt="${p.title}">
           <div class="overlay">
             <h3>${p.title}</h3>
@@ -48,8 +46,8 @@ if(project && container){
           </div>
         </div>
       `).join('')}
-    </section>
+    </div>
   `;
-} else if(container) {
+} else {
   container.innerHTML = "<p>Projet non trouvé.</p>";
 }

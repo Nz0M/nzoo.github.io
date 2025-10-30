@@ -27,8 +27,9 @@
 </header>
 
 <main>
-  <!-- Section où le projet sera injecté -->
-  <section class="project-page"></section>
+  <section class="project-page">
+    <!-- Contenu généré via JS -->
+  </section>
 </main>
 
 <footer>
@@ -37,49 +38,5 @@
 
 <script src="projet.js"></script>
 <script src="menu.js"></script>
-<script>
-  // Récupération de l'ID depuis l'URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const projectId = parseInt(urlParams.get('id'));
-  const project = projects.find(p => p.id === projectId);
-  const container = document.querySelector(".project-page");
-
-  if (project) {
-    container.innerHTML = `
-      <h1>${project.title}</h1>
-      <span class="category">${project.category}</span>
-      <iframe src="${project.video}" allowfullscreen></iframe>
-
-      <div class="suggestions-section">
-        <h2>YOU MAY ALSO LIKE</h2>
-        <div class="suggestions"></div>
-      </div>
-    `;
-
-    // Génération des suggestions (2 aléatoires)
-    const suggestionsContainer = container.querySelector(".suggestions");
-    const otherProjects = projects.filter(p => p.id !== projectId);
-    const shuffled = otherProjects.sort(() => 0.5 - Math.random());
-    const suggestions = shuffled.slice(0, 2);
-
-    suggestions.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "suggestion";
-      div.onclick = () => window.location.href = `projet.html?id=${p.id}`;
-      div.innerHTML = `
-        <img src="${p.image}" alt="${p.title}">
-        <div class="overlay">
-          <h3>${p.title}</h3>
-          <p>${p.category}</p>
-        </div>
-      `;
-      suggestionsContainer.appendChild(div);
-    });
-
-  } else {
-    container.innerHTML = "<p>Projet non trouvé.</p>";
-  }
-</script>
-
 </body>
 </html>
