@@ -4,23 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work – Enzo Martin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <!-- Menu principal -->
+    <!-- Menu horizontal pour desktop -->
     <nav class="navbar-left">
       <ul>
-        <li><a href="index.html" class="nav-link active">WORK</a></li>
-        <li><a href="pictures.html" class="nav-link">PICTURES</a></li>
+        <li><a href="index.html" class="active">WORK</a></li>
+        <li><a href="pictures.html">PICTURES</a></li>
       </ul>
     </nav>
 
-    <!-- Texte centré cliquable -->
+    <!-- Texte central cliquable vers l'accueil -->
     <a href="index.html" class="header-center">MARTIN ENZO</a>
 
-    <!-- Bouton burger -->
+    <!-- Burger menu pour mobile -->
     <div class="burger" id="burger">
       <div></div>
       <div></div>
@@ -29,8 +28,8 @@
   </header>
 
   <main>
-    <section class="projects-grid">
-      <div class="grid"></div>
+    <section class="grid">
+      <!-- Projet JS généré -->
     </section>
   </main>
 
@@ -38,31 +37,7 @@
     <p>© 2025 Enzo Martin – Tous droits réservés.</p>
   </footer>
 
-  <!-- Génération des projets WORK uniquement -->
   <script src="projet.js"></script>
-  <script>
-    const container = document.querySelector('.grid');
-    projects.filter(p => p.type === "work").forEach(project => {
-      container.innerHTML += `
-        <div class="project" onclick="window.location.href='projet.html?id=${project.id}'">
-          <img src="${project.image}" alt="${project.title}">
-          <div class="overlay">
-            <h3>${project.title}</h3>
-            <p>${project.category}</p>
-          </div>
-        </div>
-      `;
-    });
-  </script>
-
-  <!-- Menu burger mobile -->
-  <div id="nav-links">
-    <ul>
-      <li><a href="index.html">WORK</a></li>
-      <li><a href="pictures.html">PICTURES</a></li>
-    </ul>
-  </div>
-
   <script src="menu.js"></script>
 </body>
 </html>
