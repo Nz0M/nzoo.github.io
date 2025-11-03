@@ -2,7 +2,7 @@
 const projects = [
   {id:1, title:"Victor Solf", category:"Electro", video:"https://www.youtube.com/embed/nwKivhgaVGc", image:"images/projet1.jpg"},
   {id:2, title:"Synapson X Clou", category:"Electro", video:"https://www.youtube.com/embed/Rn8zcOwZc6M", image:"images/projet2.jpg"},
-  {id:19, title:"Showcase Aime Simone", category:"Cadreur", video:"https://www.youtube.com/embed/JrRPB61i2uU", image:"images/projet3.jpg"},
+  {id:3, title:"Breeyo - Black out", category:"Cadreur", video:"https://www.youtube.com/embed/b0JleJ5lEYU", image:"images/projet19.jpg"},
   {id:4, title:"Showcase Tessa Dixson", category:"Cadreur", video:"https://www.youtube.com/embed/qPE0ChvXO0Y", image:"images/projet4.jpg"},
   {id:5, title:"Kaky X Fresh", category:"Electro", video:"https://www.youtube.com/embed/bPXh8nMOq3c", image:"images/projet5.jpg"},
   {id:6, title:"Charlie Pale X Fresh", category:"Cadreur & Electro", video:"https://www.youtube.com/embed/ANfyjxDES8s", image:"images/projet6.jpg"},
@@ -18,7 +18,7 @@ const projects = [
   {id:16, title:"Sainte Victoire X Fresh", category:"Electro", video:"https://www.youtube.com/embed/aXBiZMyrJZM", image:"images/projet16.jpg"},
   {id:17, title:"Rallye", category:"Cadreur & Electro", video:"https://www.youtube.com/embed/sIWohq8KDGg", image:"images/projet17.jpg"},
   {id:18, title:"Hélène Sio X Fresh", category:"Cadreur & Electro", video:"https://www.youtube.com/embed/aZQjYPFOiUw", image:"images/projet18.jpg"},
-  {id:3, title:"Breeyo - Black out", category:"Cadreur", video:"https://www.youtube.com/embed/b0JleJ5lEYU", image:"images/projet19.jpg"},
+  {id:19, title:"Showcase Aime Simone", category:"Cadreur", video:"https://www.youtube.com/embed/JrRPB61i2uU", image:"images/projet3.jpg"},
   {id:20, title:"Oklou - Harvest Sky", category:"Cadreur", video:"https://www.youtube.com/embed/B6MuFJ7Oepc", image:"images/projet20.jpg"},
   {id:21, title:"Oklou - Blade Bird", category:"Cadreur", video:"https://www.youtube.com/embed/JdiinD0PJWU", image:"images/projet21.jpg"},
   {id:22, title:"Oklou - Plague Dogs", category:"Cadreur", video:"https://www.youtube.com/embed/zHuJfx8lwZA", image:"images/projet22.jpg"},
