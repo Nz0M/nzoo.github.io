@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voitures – Enzo Martin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar-left">
+    <ul>
+      <li><a href="index.html">WORK</a></li>
+      <li><a href="pictures.html" class="active">PICTURES</a></li>
+    </ul>
+  </nav>
+  <a href="index.html" class="header-center">MARTIN ENZO</a>
+
+  <div class="burger" id="burger">
+    <div></div><div></div><div></div>
+  </div>
+</header>
+
+<main>
+  <h1 style="text-align:center; margin-bottom:30px;">Voitures</h1>
+
+  <section class="grid">
+    <script>
+      for (let i = 1; i <= 20; i++) {
+        document.write(`
+          <div class="project">
+            <img src="pics/voitures/img${i}.jpg" alt="Voiture ${i}">
+          </div>
+        `);
+      }
+    </script>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Enzo Martin – Tous droits réservés.</p>
+</footer>
+
+<script src="menu.js"></script>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="">
+  <div class="lightbox-controls">
+    <span class="prev">❮</span>
+    <span class="next">❯</span>
+  </div>
+</div>
+
+<script src="lightbox.js"></script>
+
+</body>
+</html>
